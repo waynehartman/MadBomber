@@ -17,7 +17,7 @@
 		B0DFCE5F18B45930007C6676 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCE5D18B45930007C6676 /* Main_iPhone.storyboard */; };
 		B0DFCE6218B45930007C6676 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCE6018B45930007C6676 /* Main_iPad.storyboard */; };
 		B0DFCE6518B45930007C6676 /* MBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0DFCE6418B45930007C6676 /* MBViewController.m */; };
-		B0DFCE6818B45930007C6676 /* MBMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B0DFCE6718B45930007C6676 /* MBMyScene.m */; };
+		B0DFCE6818B45930007C6676 /* MBBomberScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B0DFCE6718B45930007C6676 /* MBBomberScene.m */; };
 		B0DFCE6A18B45930007C6676 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCE6918B45930007C6676 /* Spaceship.png */; };
 		B0DFCE6C18B45930007C6676 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCE6B18B45930007C6676 /* Images.xcassets */; };
 		B0DFCE7318B45930007C6676 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0DFCE7218B45930007C6676 /* XCTest.framework */; };
@@ -53,8 +53,8 @@
 		B0DFCE6118B45930007C6676 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		B0DFCE6318B45930007C6676 /* MBViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBViewController.h; sourceTree = "<group>"; };
 		B0DFCE6418B45930007C6676 /* MBViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBViewController.m; sourceTree = "<group>"; };
-		B0DFCE6618B45930007C6676 /* MBMyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBMyScene.h; sourceTree = "<group>"; };
-		B0DFCE6718B45930007C6676 /* MBMyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBMyScene.m; sourceTree = "<group>"; };
+		B0DFCE6618B45930007C6676 /* MBBomberScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBBomberScene.h; sourceTree = "<group>"; };
+		B0DFCE6718B45930007C6676 /* MBBomberScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBBomberScene.m; sourceTree = "<group>"; };
 		B0DFCE6918B45930007C6676 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
 		B0DFCE6B18B45930007C6676 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B0DFCE7118B45930007C6676 /* MadBomberTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MadBomberTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,8 +129,8 @@
 				B0DFCE6018B45930007C6676 /* Main_iPad.storyboard */,
 				B0DFCE6318B45930007C6676 /* MBViewController.h */,
 				B0DFCE6418B45930007C6676 /* MBViewController.m */,
-				B0DFCE6618B45930007C6676 /* MBMyScene.h */,
-				B0DFCE6718B45930007C6676 /* MBMyScene.m */,
+				B0DFCE6618B45930007C6676 /* MBBomberScene.h */,
+				B0DFCE6718B45930007C6676 /* MBBomberScene.m */,
 				B0DFCE6918B45930007C6676 /* Spaceship.png */,
 				B0DFCE6B18B45930007C6676 /* Images.xcassets */,
 				B0DFCE5218B45930007C6676 /* Supporting Files */,
@@ -268,7 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0DFCE5818B45930007C6676 /* main.m in Sources */,
-				B0DFCE6818B45930007C6676 /* MBMyScene.m in Sources */,
+				B0DFCE6818B45930007C6676 /* MBBomberScene.m in Sources */,
 				B0DFCE6518B45930007C6676 /* MBViewController.m in Sources */,
 				B0DFCE5C18B45930007C6676 /* MBAppDelegate.m in Sources */,
 			);

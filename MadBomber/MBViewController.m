@@ -7,45 +7,50 @@
 //
 
 #import "MBViewController.h"
-#import "MBMyScene.h"
+#import "MBBomberScene.h"
+
+@interface MBViewController ()
+
+@property (nonatomic, strong) SKScene *scene;
+
+@end
 
 @implementation MBViewController
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 
     // Configure the view.
     SKView * skView = (SKView *)self.view;
     skView.showsFPS = YES;
     skView.showsNodeCount = YES;
-    
-    // Create and configure the scene.
-    SKScene * scene = [MBMyScene sceneWithSize:skView.bounds.size];
-    scene.scaleMode = SKSceneScaleModeAspectFill;
-    
-    // Present the scene.
-    [skView presentScene:scene];
 }
 
-- (BOOL)shouldAutorotate
-{
-    return YES;
-}
+- (void)viewWillLayoutSubviews {
+    if (!_scene) {
+        SKView *view = (SKView *)self.view;
+        
+        // Create and configure the scene.
+        SKScene * scene = [MBBomberScene sceneWithSize:view.bounds.size];
+        scene.scaleMode = SKSceneScaleModeAspectFill;
 
-- (NSUInteger)supportedInterfaceOrientations
-{
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return UIInterfaceOrientationMaskAllButUpsideDown;
-    } else {
-        return UIInterfaceOrientationMaskAll;
+        self.scene = scene;
+
+        // Present the scene.
+        [view presentScene:scene];
     }
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Release any cached data, images, etc that aren't in use.
+- (BOOL)shouldAutorotate {
+    return YES;
+}
+
+- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskLandscape;
+}
+
+- (BOOL)prefersStatusBarHidden {
+    return YES;
 }
 
 @end
