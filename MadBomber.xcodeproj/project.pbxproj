@@ -1,0 +1,506 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B0DFCE4A18B45930007C6676 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0DFCE4918B45930007C6676 /* Foundation.framework */; };
+		B0DFCE4C18B45930007C6676 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0DFCE4B18B45930007C6676 /* CoreGraphics.framework */; };
+		B0DFCE4E18B45930007C6676 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0DFCE4D18B45930007C6676 /* UIKit.framework */; };
+		B0DFCE5018B45930007C6676 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0DFCE4F18B45930007C6676 /* SpriteKit.framework */; };
+		B0DFCE5618B45930007C6676 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCE5418B45930007C6676 /* InfoPlist.strings */; };
+		B0DFCE5818B45930007C6676 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B0DFCE5718B45930007C6676 /* main.m */; };
+		B0DFCE5C18B45930007C6676 /* MBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B0DFCE5B18B45930007C6676 /* MBAppDelegate.m */; };
+		B0DFCE5F18B45930007C6676 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCE5D18B45930007C6676 /* Main_iPhone.storyboard */; };
+		B0DFCE6218B45930007C6676 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCE6018B45930007C6676 /* Main_iPad.storyboard */; };
+		B0DFCE6518B45930007C6676 /* MBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0DFCE6418B45930007C6676 /* MBViewController.m */; };
+		B0DFCE6818B45930007C6676 /* MBMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B0DFCE6718B45930007C6676 /* MBMyScene.m */; };
+		B0DFCE6A18B45930007C6676 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCE6918B45930007C6676 /* Spaceship.png */; };
+		B0DFCE6C18B45930007C6676 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCE6B18B45930007C6676 /* Images.xcassets */; };
+		B0DFCE7318B45930007C6676 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0DFCE7218B45930007C6676 /* XCTest.framework */; };
+		B0DFCE7418B45930007C6676 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0DFCE4918B45930007C6676 /* Foundation.framework */; };
+		B0DFCE7518B45930007C6676 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0DFCE4D18B45930007C6676 /* UIKit.framework */; };
+		B0DFCE7D18B45930007C6676 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCE7B18B45930007C6676 /* InfoPlist.strings */; };
+		B0DFCE7F18B45930007C6676 /* MadBomberTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B0DFCE7E18B45930007C6676 /* MadBomberTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B0DFCE7618B45930007C6676 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B0DFCE3E18B45930007C6676 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B0DFCE4518B45930007C6676;
+			remoteInfo = MadBomber;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B0DFCE4618B45930007C6676 /* MadBomber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MadBomber.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0DFCE4918B45930007C6676 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B0DFCE4B18B45930007C6676 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B0DFCE4D18B45930007C6676 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B0DFCE4F18B45930007C6676 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		B0DFCE5318B45930007C6676 /* MadBomber-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MadBomber-Info.plist"; sourceTree = "<group>"; };
+		B0DFCE5518B45930007C6676 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B0DFCE5718B45930007C6676 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B0DFCE5918B45930007C6676 /* MadBomber-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MadBomber-Prefix.pch"; sourceTree = "<group>"; };
+		B0DFCE5A18B45930007C6676 /* MBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBAppDelegate.h; sourceTree = "<group>"; };
+		B0DFCE5B18B45930007C6676 /* MBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBAppDelegate.m; sourceTree = "<group>"; };
+		B0DFCE5E18B45930007C6676 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		B0DFCE6118B45930007C6676 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		B0DFCE6318B45930007C6676 /* MBViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBViewController.h; sourceTree = "<group>"; };
+		B0DFCE6418B45930007C6676 /* MBViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBViewController.m; sourceTree = "<group>"; };
+		B0DFCE6618B45930007C6676 /* MBMyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBMyScene.h; sourceTree = "<group>"; };
+		B0DFCE6718B45930007C6676 /* MBMyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBMyScene.m; sourceTree = "<group>"; };
+		B0DFCE6918B45930007C6676 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
+		B0DFCE6B18B45930007C6676 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B0DFCE7118B45930007C6676 /* MadBomberTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MadBomberTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0DFCE7218B45930007C6676 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		B0DFCE7A18B45930007C6676 /* MadBomberTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MadBomberTests-Info.plist"; sourceTree = "<group>"; };
+		B0DFCE7C18B45930007C6676 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B0DFCE7E18B45930007C6676 /* MadBomberTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MadBomberTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B0DFCE4318B45930007C6676 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0DFCE4C18B45930007C6676 /* CoreGraphics.framework in Frameworks */,
+				B0DFCE4E18B45930007C6676 /* UIKit.framework in Frameworks */,
+				B0DFCE5018B45930007C6676 /* SpriteKit.framework in Frameworks */,
+				B0DFCE4A18B45930007C6676 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0DFCE6E18B45930007C6676 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0DFCE7318B45930007C6676 /* XCTest.framework in Frameworks */,
+				B0DFCE7518B45930007C6676 /* UIKit.framework in Frameworks */,
+				B0DFCE7418B45930007C6676 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B0DFCE3D18B45930007C6676 = {
+			isa = PBXGroup;
+			children = (
+				B0DFCE5118B45930007C6676 /* MadBomber */,
+				B0DFCE7818B45930007C6676 /* MadBomberTests */,
+				B0DFCE4818B45930007C6676 /* Frameworks */,
+				B0DFCE4718B45930007C6676 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B0DFCE4718B45930007C6676 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B0DFCE4618B45930007C6676 /* MadBomber.app */,
+				B0DFCE7118B45930007C6676 /* MadBomberTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B0DFCE4818B45930007C6676 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B0DFCE4918B45930007C6676 /* Foundation.framework */,
+				B0DFCE4B18B45930007C6676 /* CoreGraphics.framework */,
+				B0DFCE4D18B45930007C6676 /* UIKit.framework */,
+				B0DFCE4F18B45930007C6676 /* SpriteKit.framework */,
+				B0DFCE7218B45930007C6676 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B0DFCE5118B45930007C6676 /* MadBomber */ = {
+			isa = PBXGroup;
+			children = (
+				B0DFCE5A18B45930007C6676 /* MBAppDelegate.h */,
+				B0DFCE5B18B45930007C6676 /* MBAppDelegate.m */,
+				B0DFCE5D18B45930007C6676 /* Main_iPhone.storyboard */,
+				B0DFCE6018B45930007C6676 /* Main_iPad.storyboard */,
+				B0DFCE6318B45930007C6676 /* MBViewController.h */,
+				B0DFCE6418B45930007C6676 /* MBViewController.m */,
+				B0DFCE6618B45930007C6676 /* MBMyScene.h */,
+				B0DFCE6718B45930007C6676 /* MBMyScene.m */,
+				B0DFCE6918B45930007C6676 /* Spaceship.png */,
+				B0DFCE6B18B45930007C6676 /* Images.xcassets */,
+				B0DFCE5218B45930007C6676 /* Supporting Files */,
+			);
+			path = MadBomber;
+			sourceTree = "<group>";
+		};
+		B0DFCE5218B45930007C6676 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B0DFCE5318B45930007C6676 /* MadBomber-Info.plist */,
+				B0DFCE5418B45930007C6676 /* InfoPlist.strings */,
+				B0DFCE5718B45930007C6676 /* main.m */,
+				B0DFCE5918B45930007C6676 /* MadBomber-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B0DFCE7818B45930007C6676 /* MadBomberTests */ = {
+			isa = PBXGroup;
+			children = (
+				B0DFCE7E18B45930007C6676 /* MadBomberTests.m */,
+				B0DFCE7918B45930007C6676 /* Supporting Files */,
+			);
+			path = MadBomberTests;
+			sourceTree = "<group>";
+		};
+		B0DFCE7918B45930007C6676 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B0DFCE7A18B45930007C6676 /* MadBomberTests-Info.plist */,
+				B0DFCE7B18B45930007C6676 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B0DFCE4518B45930007C6676 /* MadBomber */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B0DFCE8218B45930007C6676 /* Build configuration list for PBXNativeTarget "MadBomber" */;
+			buildPhases = (
+				B0DFCE4218B45930007C6676 /* Sources */,
+				B0DFCE4318B45930007C6676 /* Frameworks */,
+				B0DFCE4418B45930007C6676 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MadBomber;
+			productName = MadBomber;
+			productReference = B0DFCE4618B45930007C6676 /* MadBomber.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B0DFCE7018B45930007C6676 /* MadBomberTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B0DFCE8518B45930007C6676 /* Build configuration list for PBXNativeTarget "MadBomberTests" */;
+			buildPhases = (
+				B0DFCE6D18B45930007C6676 /* Sources */,
+				B0DFCE6E18B45930007C6676 /* Frameworks */,
+				B0DFCE6F18B45930007C6676 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B0DFCE7718B45930007C6676 /* PBXTargetDependency */,
+			);
+			name = MadBomberTests;
+			productName = MadBomberTests;
+			productReference = B0DFCE7118B45930007C6676 /* MadBomberTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B0DFCE3E18B45930007C6676 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = MB;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Wayne Hartman";
+				TargetAttributes = {
+					B0DFCE7018B45930007C6676 = {
+						TestTargetID = B0DFCE4518B45930007C6676;
+					};
+				};
+			};
+			buildConfigurationList = B0DFCE4118B45930007C6676 /* Build configuration list for PBXProject "MadBomber" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B0DFCE3D18B45930007C6676;
+			productRefGroup = B0DFCE4718B45930007C6676 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B0DFCE4518B45930007C6676 /* MadBomber */,
+				B0DFCE7018B45930007C6676 /* MadBomberTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B0DFCE4418B45930007C6676 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0DFCE6A18B45930007C6676 /* Spaceship.png in Resources */,
+				B0DFCE6C18B45930007C6676 /* Images.xcassets in Resources */,
+				B0DFCE6218B45930007C6676 /* Main_iPad.storyboard in Resources */,
+				B0DFCE5F18B45930007C6676 /* Main_iPhone.storyboard in Resources */,
+				B0DFCE5618B45930007C6676 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0DFCE6F18B45930007C6676 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0DFCE7D18B45930007C6676 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B0DFCE4218B45930007C6676 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0DFCE5818B45930007C6676 /* main.m in Sources */,
+				B0DFCE6818B45930007C6676 /* MBMyScene.m in Sources */,
+				B0DFCE6518B45930007C6676 /* MBViewController.m in Sources */,
+				B0DFCE5C18B45930007C6676 /* MBAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0DFCE6D18B45930007C6676 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0DFCE7F18B45930007C6676 /* MadBomberTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B0DFCE7718B45930007C6676 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B0DFCE4518B45930007C6676 /* MadBomber */;
+			targetProxy = B0DFCE7618B45930007C6676 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B0DFCE5418B45930007C6676 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B0DFCE5518B45930007C6676 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B0DFCE5D18B45930007C6676 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B0DFCE5E18B45930007C6676 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		B0DFCE6018B45930007C6676 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B0DFCE6118B45930007C6676 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		B0DFCE7B18B45930007C6676 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B0DFCE7C18B45930007C6676 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B0DFCE8018B45930007C6676 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B0DFCE8118B45930007C6676 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B0DFCE8318B45930007C6676 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MadBomber/MadBomber-Prefix.pch";
+				INFOPLIST_FILE = "MadBomber/MadBomber-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B0DFCE8418B45930007C6676 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MadBomber/MadBomber-Prefix.pch";
+				INFOPLIST_FILE = "MadBomber/MadBomber-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		B0DFCE8618B45930007C6676 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MadBomber.app/MadBomber";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MadBomber/MadBomber-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "MadBomberTests/MadBomberTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		B0DFCE8718B45930007C6676 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MadBomber.app/MadBomber";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MadBomber/MadBomber-Prefix.pch";
+				INFOPLIST_FILE = "MadBomberTests/MadBomberTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B0DFCE4118B45930007C6676 /* Build configuration list for PBXProject "MadBomber" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0DFCE8018B45930007C6676 /* Debug */,
+				B0DFCE8118B45930007C6676 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B0DFCE8218B45930007C6676 /* Build configuration list for PBXNativeTarget "MadBomber" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0DFCE8318B45930007C6676 /* Debug */,
+				B0DFCE8418B45930007C6676 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B0DFCE8518B45930007C6676 /* Build configuration list for PBXNativeTarget "MadBomberTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0DFCE8618B45930007C6676 /* Debug */,
+				B0DFCE8718B45930007C6676 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B0DFCE3E18B45930007C6676 /* Project object */;
+}
