@@ -8,6 +8,7 @@
 
 #import "MBBomberScene.h"
 @import CoreMotion;
+@import AVFoundation;
 
 @interface MBBomberScene() {
     double _nextBombToSpawn;
@@ -21,6 +22,7 @@
 @property (nonatomic, strong) SKSpriteNode *player;
 @property (nonatomic, assign) NSInteger points;
 @property (nonatomic, strong) SKLabelNode *restartLabel;
+@property (nonatomic, strong) AVAudioPlayer *backgroundAudioPlayer;
 
 @property (nonatomic, strong) CMMotionManager *motionManager;
 
@@ -54,6 +56,8 @@
         [self insertChild:self.player atIndex:self.children.count - 1];
 
         [self startTheGame];
+        
+        [self startBackgroundMusic];
     }
     return self;
 }
@@ -165,6 +169,7 @@
         
         SKAction *moveBombSequence = [SKAction sequence:@[moveAction, doneAction]];
         [bomb runAction:moveBombSequence withKey:@"bombMoving"];
+        [bomb runAction:[SKAction playSoundFileNamed:@"bombDrop.caf" waitForCompletion:NO]];
     }
     
     if (!_gameOver) {
@@ -180,7 +185,8 @@
                 bomb.hidden = YES;
 
                 [self incrementScoreByPoints:50];
-            } else if (bomb.position.y < (bomb.frame.size.width * 0.5)) {
+                [self.player runAction:[SKAction playSoundFileNamed:@"drop.caf" waitForCompletion:NO]];
+            } else if (bomb.position.y < (bomb.frame.size.width * 0.5)) { //    check touched bottom
                 [self endTheGame];
                 NSLog(@"kaboom!");
                 break;
@@ -193,6 +199,8 @@
 
 - (void)startTheGame {
     [self killAllActions];
+
+    [self.bomber runAction:[SKAction playSoundFileNamed:@"evilLaugh.caf" waitForCompletion:NO]];
 
     self.bomber.position = CGPointMake(100.0f, self.frame.size.height - self.bomber.size.height);
     self.player.position = CGPointMake(100.0f, (self.player.size.height * 0.5f) + 5.0f);
@@ -222,6 +230,7 @@
 
 - (void)endTheGame {
     [self killAllActions];
+    [self runAction:[SKAction playSoundFileNamed:@"crazyLaugh.caf" waitForCompletion:NO]];
 
     self.player.hidden = YES;
     
@@ -242,7 +251,8 @@
         SKAction *wait = [SKAction waitForDuration:0.15 * i];
         SKAction *scale = [SKAction scaleTo:1.5f duration:0.15];
         SKAction *fade = [SKAction fadeAlphaTo:0.0f duration:0.15];
-        SKAction *transform = [SKAction group:@[scale, fade]];
+        SKAction *fx = [SKAction playSoundFileNamed:@"smallExplosion.caf" waitForCompletion:NO];
+        SKAction *transform = [SKAction group:@[scale, fade, fx]];
 
         SKAction *sequence = [SKAction sequence:@[wait, transform]];
 
@@ -370,6 +380,23 @@
     NSInteger highScore = [[NSUserDefaults standardUserDefaults] integerForKey:USER_DEFAULTS_HIGH_SCORE];
     NSString *text = [NSString stringWithFormat:@"Hi Score: %li", (long)highScore];
     self.scoreNode.text = text;
+}
+
+#pragma mark - Music
+
+- (void)startBackgroundMusic {
+    NSError *err;
+    NSURL *file = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"BlownAway.mp3" ofType:nil]];
+    self.backgroundAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:file error:&err];
+    if (err) {
+        NSLog(@"error in audio play %@",[err userInfo]);
+        return;
+    }
+    [self.backgroundAudioPlayer prepareToPlay];
+
+    self.backgroundAudioPlayer.numberOfLoops = -1;
+    [self.backgroundAudioPlayer setVolume:0.33];
+    [self.backgroundAudioPlayer play];
 }
 
 @end

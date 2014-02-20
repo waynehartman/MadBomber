@@ -25,6 +25,12 @@
 		B0DFCE7518B45930007C6676 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0DFCE4D18B45930007C6676 /* UIKit.framework */; };
 		B0DFCE7D18B45930007C6676 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCE7B18B45930007C6676 /* InfoPlist.strings */; };
 		B0DFCE7F18B45930007C6676 /* MadBomberTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B0DFCE7E18B45930007C6676 /* MadBomberTests.m */; };
+		B0DFCE8D18B59DC7007C6676 /* smallExplosion.caf in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCE8C18B59DC7007C6676 /* smallExplosion.caf */; };
+		B0DFCE8F18B59DDD007C6676 /* crazyLaugh.caf in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCE8E18B59DDD007C6676 /* crazyLaugh.caf */; };
+		B0DFCE9118B59EED007C6676 /* drop.caf in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCE9018B59EED007C6676 /* drop.caf */; };
+		B0DFCE9518B5A0F6007C6676 /* evilLaugh.caf in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCE9418B5A0F6007C6676 /* evilLaugh.caf */; };
+		B0DFCE9718B5A1B6007C6676 /* bombDrop.caf in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCE9618B5A1B6007C6676 /* bombDrop.caf */; };
+		B0DFCE9918B5A602007C6676 /* BlownAway.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCE9818B5A602007C6676 /* BlownAway.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +68,12 @@
 		B0DFCE7A18B45930007C6676 /* MadBomberTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MadBomberTests-Info.plist"; sourceTree = "<group>"; };
 		B0DFCE7C18B45930007C6676 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B0DFCE7E18B45930007C6676 /* MadBomberTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MadBomberTests.m; sourceTree = "<group>"; };
+		B0DFCE8C18B59DC7007C6676 /* smallExplosion.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = smallExplosion.caf; sourceTree = "<group>"; };
+		B0DFCE8E18B59DDD007C6676 /* crazyLaugh.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = crazyLaugh.caf; sourceTree = "<group>"; };
+		B0DFCE9018B59EED007C6676 /* drop.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = drop.caf; sourceTree = "<group>"; };
+		B0DFCE9418B5A0F6007C6676 /* evilLaugh.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = evilLaugh.caf; sourceTree = "<group>"; };
+		B0DFCE9618B5A1B6007C6676 /* bombDrop.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bombDrop.caf; sourceTree = "<group>"; };
+		B0DFCE9818B5A602007C6676 /* BlownAway.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BlownAway.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +135,12 @@
 		B0DFCE5118B45930007C6676 /* MadBomber */ = {
 			isa = PBXGroup;
 			children = (
+				B0DFCE9818B5A602007C6676 /* BlownAway.mp3 */,
+				B0DFCE9618B5A1B6007C6676 /* bombDrop.caf */,
+				B0DFCE9418B5A0F6007C6676 /* evilLaugh.caf */,
+				B0DFCE9018B59EED007C6676 /* drop.caf */,
+				B0DFCE8C18B59DC7007C6676 /* smallExplosion.caf */,
+				B0DFCE8E18B59DDD007C6676 /* crazyLaugh.caf */,
 				B0DFCE5A18B45930007C6676 /* MBAppDelegate.h */,
 				B0DFCE5B18B45930007C6676 /* MBAppDelegate.m */,
 				B0DFCE5D18B45930007C6676 /* Main_iPhone.storyboard */,
@@ -244,11 +262,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0DFCE9118B59EED007C6676 /* drop.caf in Resources */,
+				B0DFCE8F18B59DDD007C6676 /* crazyLaugh.caf in Resources */,
+				B0DFCE9518B5A0F6007C6676 /* evilLaugh.caf in Resources */,
 				B0DFCE6A18B45930007C6676 /* Spaceship.png in Resources */,
+				B0DFCE9718B5A1B6007C6676 /* bombDrop.caf in Resources */,
 				B0DFCE6C18B45930007C6676 /* Images.xcassets in Resources */,
 				B0DFCE6218B45930007C6676 /* Main_iPad.storyboard in Resources */,
+				B0DFCE8D18B59DC7007C6676 /* smallExplosion.caf in Resources */,
 				B0DFCE5F18B45930007C6676 /* Main_iPhone.storyboard in Resources */,
 				B0DFCE5618B45930007C6676 /* InfoPlist.strings in Resources */,
+				B0DFCE9918B5A602007C6676 /* BlownAway.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
