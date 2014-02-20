@@ -20,6 +20,7 @@
 @property (nonatomic, strong) SKSpriteNode *bomber;
 @property (nonatomic, strong) SKSpriteNode *player;
 @property (nonatomic, assign) NSInteger points;
+@property (nonatomic, strong) SKLabelNode *restartLabel;
 
 @property (nonatomic, strong) CMMotionManager *motionManager;
 
@@ -44,8 +45,6 @@
         [self refreshHighScore];
 
         self.scoreNode.position = CGPointMake(CGRectGetMidX(self.frame), self.frame.size.height - self.scoreNode.frame.size.height);
-        self.bomber.position = CGPointMake(100.0f, self.frame.size.height - self.bomber.size.height);
-        self.player.position = CGPointMake(100.0f, (self.player.size.height * 0.5f) + 5.0f);
 
         for (SKNode *bomb in self.bombs) {
             bomb.hidden = YES;
@@ -110,18 +109,24 @@
     return _motionManager;
 }
 
+- (SKLabelNode *)restartLabel {
+    if (!_restartLabel) {
+        _restartLabel = [[SKLabelNode alloc] initWithFontNamed:@"Avenir"];
+        _restartLabel.fontSize = 40.0f;
+    }
+
+    return _restartLabel;
+}
+
 #pragma mark - Touches
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
     
     for (UITouch *touch in touches) {
-        CGPoint location = [touch locationInNode:self];
-        
         SKNode *n = [self nodeAtPoint:[touch locationInNode:self]];
-        if (n != self && [n.name isEqual: @"restartLabel"]) {
-            [[self childNodeWithName:@"restartLabel"] removeFromParent];
-            [[self childNodeWithName:@"winLoseLabel"] removeFromParent];
+        if (n == self.restartLabel) {
+            [self.restartLabel removeFromParent];
             [self startTheGame];
             return;
         }
@@ -134,7 +139,7 @@
     /* Called before each frame is rendered */
     
     double curTime = CACurrentMediaTime();
-    if (curTime > _nextBombToSpawn) {
+    if (curTime > _nextBombToSpawn && !_gameOver) {
         float randSecs = [self randomValueBetween:0.20 andValue:1.0];
         _nextBombToSpawn = randSecs + curTime;
 
@@ -170,11 +175,15 @@
                 continue;
             }
 
-            if ([bomb intersectsNode:self.player]) {
+            if ([bomb intersectsNode:self.player]) {    //  check player collision
                 [bomb removeAllActions];
                 bomb.hidden = YES;
 
                 [self incrementScoreByPoints:50];
+            } else if (bomb.position.y < (bomb.frame.size.width * 0.5)) {
+                [self endTheGame];
+                NSLog(@"kaboom!");
+                break;
             }
         }
     }
@@ -183,8 +192,22 @@
 #pragma mark - Setup
 
 - (void)startTheGame {
+    [self killAllActions];
+
+    self.bomber.position = CGPointMake(100.0f, self.frame.size.height - self.bomber.size.height);
+    self.player.position = CGPointMake(100.0f, (self.player.size.height * 0.5f) + 5.0f);
+
     self.points = 0;
+    self.player.hidden = NO;
+    self.scoreNode.scale = 1.0f;
+
     [self incrementScoreByPoints:0];
+
+    for (SKSpriteNode *bomb in self.bombs) {
+        bomb.hidden = YES;
+        bomb.alpha = 1.0f;
+        bomb.scale = 1.0f;
+    }
 
     self.player.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.player.frame.size];
     self.player.physicsBody.dynamic = YES;
@@ -195,6 +218,80 @@
 
     _gameOver = NO;
     [self moveTheBomber];
+}
+
+- (void)endTheGame {
+    [self killAllActions];
+
+    self.player.hidden = YES;
+    
+    NSArray *filteredBombs = [self.bombs filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"hidden == NO"]];
+    NSArray *sortedBombs = [filteredBombs sortedArrayUsingComparator:^NSComparisonResult(SKSpriteNode *obj1, SKSpriteNode *obj2) {
+        if (obj1.position.y > obj2.position.y) {
+            return NSOrderedDescending;
+        } else if (obj1.position.y < obj2.position.y) {
+            return NSOrderedAscending;
+        } else {
+            return NSOrderedSame;
+        }
+    }];
+    
+    for (int i = 0; i < sortedBombs.count; i++) {
+        SKSpriteNode *bomb = sortedBombs[i];
+        
+        SKAction *wait = [SKAction waitForDuration:0.15 * i];
+        SKAction *scale = [SKAction scaleTo:1.5f duration:0.15];
+        SKAction *fade = [SKAction fadeAlphaTo:0.0f duration:0.15];
+        SKAction *transform = [SKAction group:@[scale, fade]];
+
+        SKAction *sequence = [SKAction sequence:@[wait, transform]];
+
+        [bomb runAction:sequence];
+    }
+
+    [self addChild:self.restartLabel];
+    self.restartLabel.text = @"GAME OVER...Restart?";
+    self.restartLabel.position = CGPointMake(self.frame.size.width * 0.5f, self.frame.size.height * 0.5f);
+    self.restartLabel.scale = 0.01;
+
+    SKAction *labelScaleAction = [SKAction scaleTo:1.0 duration:0.5];
+    [self.restartLabel runAction:labelScaleAction];
+
+    _gameOver = YES;
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    if (self.points > [defaults integerForKey:USER_DEFAULTS_HIGH_SCORE]) {
+        [defaults setInteger:self.points forKey:USER_DEFAULTS_HIGH_SCORE];
+        [defaults synchronize];
+
+        SKAction *scaleUp = [SKAction scaleTo:1.5f duration:0.15];
+        SKAction *scaleDown = [SKAction scaleTo:1.0f duration:0.15];
+        SKAction *scaleSequence = [SKAction sequence:@[scaleUp, scaleDown]];
+
+        [self.scoreNode runAction:[SKAction repeatAction:scaleSequence count:5]];
+    } else {
+        double delayInSeconds = 2.0;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            if (_gameOver) {
+                [self refreshHighScore];
+            }
+        });
+    }
+
+    [self stopMonitoringAcceleration];
+}
+
+- (void)killAllActions {
+    [self removeAllActions];
+    
+    for (SKSpriteNode *bomb in self.bombs) {
+        [bomb removeAllActions];
+    }
+
+    [self.bomber removeAllActions];
+    [self.scoreNode removeAllActions];
 }
 
 - (void)moveTheBomber {
