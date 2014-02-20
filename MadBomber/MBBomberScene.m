@@ -7,15 +7,21 @@
 //
 
 #import "MBBomberScene.h"
+@import CoreMotion;
 
 @interface MBBomberScene() {
     double _nextBombToSpawn;
     int _nextBomb;
+    BOOL _gameOver;
 }
 
 @property (nonatomic, strong) SKLabelNode *scoreNode;
 @property (nonatomic, strong) NSMutableArray *bombs;
 @property (nonatomic, strong) SKSpriteNode *bomber;
+@property (nonatomic, strong) SKSpriteNode *player;
+@property (nonatomic, assign) NSInteger points;
+
+@property (nonatomic, strong) CMMotionManager *motionManager;
 
 @end
 
@@ -29,18 +35,24 @@
     if (self = [super initWithSize:size]) {
         /* Setup your scene here */
         self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
+        self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
 
         [self addChild:self.scoreNode];
         [self addChild:self.bomber];
+        [self addChild:self.player];
 
         [self refreshHighScore];
 
         self.scoreNode.position = CGPointMake(CGRectGetMidX(self.frame), self.frame.size.height - self.scoreNode.frame.size.height);
         self.bomber.position = CGPointMake(100.0f, self.frame.size.height - self.bomber.size.height);
+        self.player.position = CGPointMake(100.0f, (self.player.size.height * 0.5f) + 5.0f);
+
         for (SKNode *bomb in self.bombs) {
             bomb.hidden = YES;
             [self addChild:bomb];
         }
+
+        [self insertChild:self.player atIndex:self.children.count - 1];
 
         [self startTheGame];
     }
@@ -80,6 +92,22 @@
     }
     
     return _scoreNode;
+}
+
+- (SKSpriteNode *)player {
+    if (!_player) {
+        _player = [[SKSpriteNode alloc] initWithImageNamed:@"player"];
+    }
+    
+    return _player;
+}
+
+- (CMMotionManager *)motionManager {
+    if (!_motionManager) {
+        _motionManager = [[CMMotionManager alloc] init];
+    }
+
+    return _motionManager;
 }
 
 #pragma mark - Touches
@@ -133,11 +161,39 @@
         SKAction *moveBombSequence = [SKAction sequence:@[moveAction, doneAction]];
         [bomb runAction:moveBombSequence withKey:@"bombMoving"];
     }
+    
+    if (!_gameOver) {
+        [self updatePlayerPositionFromMotionManager];
+
+        for (SKSpriteNode *bomb in self.bombs) {
+            if (bomb.hidden) {
+                continue;
+            }
+
+            if ([bomb intersectsNode:self.player]) {
+                [bomb removeAllActions];
+                bomb.hidden = YES;
+
+                [self incrementScoreByPoints:50];
+            }
+        }
+    }
 }
 
 #pragma mark - Setup
 
 - (void)startTheGame {
+    self.points = 0;
+    [self incrementScoreByPoints:0];
+
+    self.player.physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:self.player.frame.size];
+    self.player.physicsBody.dynamic = YES;
+    self.player.physicsBody.affectedByGravity = NO;
+    self.player.physicsBody.mass = 0.01;
+
+    [self startMonitoringAcceleration];
+
+    _gameOver = NO;
     [self moveTheBomber];
 }
 
@@ -176,10 +232,41 @@
     [self.bomber runAction:repeat];
 }
 
+#pragma mark - Acceleration
+
+- (void)startMonitoringAcceleration {
+    if (self.motionManager.accelerometerAvailable) {
+        [self.motionManager startAccelerometerUpdates];
+    }
+}
+
+- (void)stopMonitoringAcceleration {
+    if (self.motionManager.accelerometerAvailable && self.motionManager.accelerometerActive) {
+        [self.motionManager stopAccelerometerUpdates];
+        NSLog(@"accelerometer updates off...");
+    }
+}
+
+- (void)updatePlayerPositionFromMotionManager {
+    CMAccelerometerData* data = self.motionManager.accelerometerData;
+    if (fabs(data.acceleration.y) > 0.1) {
+        [self applyPlayerForce:CGVectorMake(-20.0f * data.acceleration.y, 0.0f)];
+    }
+}
+
+- (void)applyPlayerForce:(CGVector)vector {
+    [self.player.physicsBody applyForce:vector];
+}
+
 #pragma mark - Utility Methods
 
 - (float)randomValueBetween:(float)low andValue:(float)high {
     return (((float) arc4random() / 0xFFFFFFFFu) * (high - low)) + low;
+}
+
+- (void)incrementScoreByPoints:(NSInteger)points {
+    self.points += points;
+    self.scoreNode.text = [NSString stringWithFormat:@"Score: %li", (long)self.points];
 }
 
 - (void)refreshHighScore {
