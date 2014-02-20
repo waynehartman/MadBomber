@@ -112,33 +112,38 @@
 }
 
 - (void)moveTheBomber {
-    static float delta = 200;
-    float min = self.bomber.position.x - delta;
-    float max = self.bomber.position.x + delta;
-
-    if (min < self.bomber.size.width) {
-        min = self.bomber.size.width;
-    }
-
-    if (max > (self.frame.size.width - self.bomber.size.width)) {
-        max = self.frame.size.width - self.bomber.size.width;
-    }
-    
-    float randomX = [self randomValueBetween:min
-                                    andValue:max];
-    //Set position instead of running action with duration 0
-    SKAction *moveAction = [SKAction moveToX:randomX duration:0.25f];
-
     __weak typeof(self) weakSelf = self;
+    __weak typeof(self.bomber) weakBomber = self.bomber;
+
+    float duration = 0.25f;
+
+    SKAction *moveAction = [SKAction runBlock:^{
+        static float maxDelta = 200;
+        float min = weakSelf.bomber.position.x - maxDelta;
+        float max = weakSelf.bomber.position.x + maxDelta;
+
+        if (min < weakSelf.bomber.size.width) {
+            min = weakSelf.bomber.size.width;
+        }
+
+        if (max > (weakSelf.frame.size.width - weakSelf.bomber.size.width)) {
+            max = weakSelf.frame.size.width - weakSelf.bomber.size.width;
+        }
+
+        float randomX = [weakSelf randomValueBetween:min
+                                            andValue:max];
+
+        SKAction *moveX = [SKAction moveToX:randomX duration:duration];
+
+        [weakBomber runAction:moveX];
+    }];
 
     SKAction *waitAction = [SKAction waitForDuration:0.15 withRange:0.4];
-    SKAction *completionAction = [SKAction customActionWithDuration:0 actionBlock:^(SKNode *node, CGFloat elapsedTime) {
-        [weakSelf moveTheBomber];
-    }];
-    
-    SKAction *sequence = [SKAction sequence:@[moveAction, waitAction, completionAction]];
+    SKAction *bufferWait = [SKAction waitForDuration:duration];
+    SKAction *sequence = [SKAction sequence:@[moveAction, bufferWait, waitAction]];
+    SKAction *repeat = [SKAction repeatActionForever:sequence];
 
-    [self.bomber runAction:sequence];
+    [self.bomber runAction:repeat];
 }
 
 #pragma mark - Utility Methods
