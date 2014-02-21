@@ -7,8 +7,13 @@
 //
 
 #import "MBBomberScene.h"
-@import CoreMotion;
 @import AVFoundation;
+
+#if TARGET_OS_IPHONE
+@import CoreMotion;
+#else
+#import "MBMouseMotionManager.h"
+#endif
 
 @interface MBBomberScene() {
     double _nextBombToSpawn;
@@ -24,7 +29,11 @@
 @property (nonatomic, strong) SKLabelNode *restartLabel;
 @property (nonatomic, strong) AVAudioPlayer *backgroundAudioPlayer;
 
+#if TARGET_OS_IPHONE
 @property (nonatomic, strong) CMMotionManager *motionManager;
+#else
+@property (nonatomic, strong) MBMouseMotionManager *motionManager;
+#endif
 
 @end
 
@@ -59,6 +68,7 @@
         
         [self startBackgroundMusic];
     }
+
     return self;
 }
 
@@ -105,6 +115,7 @@
     return _player;
 }
 
+#if TARGET_OS_IPHONE
 - (CMMotionManager *)motionManager {
     if (!_motionManager) {
         _motionManager = [[CMMotionManager alloc] init];
@@ -112,6 +123,15 @@
 
     return _motionManager;
 }
+#else
+- (MBMouseMotionManager *)motionManager {
+    if (!_motionManager) {
+        _motionManager = [[MBMouseMotionManager alloc] init];
+    }
+
+    return _motionManager;
+}
+#endif
 
 - (SKLabelNode *)restartLabel {
     if (!_restartLabel) {
@@ -122,7 +142,8 @@
     return _restartLabel;
 }
 
-#pragma mark - Touches
+#pragma mark - Touches / Mouse
+#if TARGET_OS_IPHONE
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
@@ -136,6 +157,20 @@
         }
     }
 }
+
+#else 
+
+- (void)mouseUp:(NSEvent *)theEvent {
+    CGPoint point = [theEvent locationInNode:self];
+    
+    SKNode *n = [self nodeAtPoint:point];
+    if (n == self.restartLabel) {
+        [self.restartLabel removeFromParent];
+        [self startTheGame];
+    }
+}
+
+#endif
 
 #pragma mark - Update
 
@@ -342,23 +377,35 @@
 #pragma mark - Acceleration
 
 - (void)startMonitoringAcceleration {
+#if TARGET_OS_IPHONE
     if (self.motionManager.accelerometerAvailable) {
         [self.motionManager startAccelerometerUpdates];
     }
+#else
+    [self.motionManager startMouseMotionUpdates];
+#endif
 }
 
 - (void)stopMonitoringAcceleration {
+#if TARGET_OS_IPHONE
     if (self.motionManager.accelerometerAvailable && self.motionManager.accelerometerActive) {
         [self.motionManager stopAccelerometerUpdates];
         NSLog(@"accelerometer updates off...");
     }
+#else
+    [self.motionManager stopMouseMotionUpdates];
+#endif
 }
 
 - (void)updatePlayerPositionFromMotionManager {
+#if TARGET_OS_IPHONE
     CMAccelerometerData* data = self.motionManager.accelerometerData;
     if (fabs(data.acceleration.y) > 0.1) {
         [self applyPlayerForce:CGVectorMake(-20.0f * data.acceleration.y, 0.0f)];
     }
+#else
+    [self applyPlayerForce:CGVectorMake(self.motionManager.acceleration.x, 0.0f)];
+#endif
 }
 
 - (void)applyPlayerForce:(CGVector)vector {

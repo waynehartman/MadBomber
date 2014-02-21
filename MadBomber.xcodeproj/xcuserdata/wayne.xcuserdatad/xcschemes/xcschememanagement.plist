@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>MadBomberX.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -18,6 +23,16 @@
 			<true/>
 		</dict>
 		<key>B0DFCE7018B45930007C6676</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B0DFCE9D18B6CCB1007C6676</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B0DFCEC118B6CCB1007C6676</key>
 		<dict>
 			<key>primary</key>
 			<true/>
