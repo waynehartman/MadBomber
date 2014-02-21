@@ -38,6 +38,16 @@
                ReferencedContainer = "container:MadBomber.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B0DFCEC118B6CCB1007C6676"
+               BuildableName = "MadBomberXTests.xctest"
+               BlueprintName = "MadBomberXTests"
+               ReferencedContainer = "container:MadBomber.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

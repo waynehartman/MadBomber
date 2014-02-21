@@ -25,6 +25,33 @@
 		B0DFCE7518B45930007C6676 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0DFCE4D18B45930007C6676 /* UIKit.framework */; };
 		B0DFCE7D18B45930007C6676 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCE7B18B45930007C6676 /* InfoPlist.strings */; };
 		B0DFCE7F18B45930007C6676 /* MadBomberTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B0DFCE7E18B45930007C6676 /* MadBomberTests.m */; };
+		B0DFCE8D18B59DC7007C6676 /* smallExplosion.caf in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCE8C18B59DC7007C6676 /* smallExplosion.caf */; };
+		B0DFCE8F18B59DDD007C6676 /* crazyLaugh.caf in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCE8E18B59DDD007C6676 /* crazyLaugh.caf */; };
+		B0DFCE9118B59EED007C6676 /* drop.caf in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCE9018B59EED007C6676 /* drop.caf */; };
+		B0DFCE9518B5A0F6007C6676 /* evilLaugh.caf in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCE9418B5A0F6007C6676 /* evilLaugh.caf */; };
+		B0DFCE9718B5A1B6007C6676 /* bombDrop.caf in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCE9618B5A1B6007C6676 /* bombDrop.caf */; };
+		B0DFCE9918B5A602007C6676 /* BlownAway.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCE9818B5A602007C6676 /* BlownAway.mp3 */; };
+		B0DFCEA018B6CCB1007C6676 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0DFCE9F18B6CCB1007C6676 /* Cocoa.framework */; };
+		B0DFCEA118B6CCB1007C6676 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0DFCE4F18B45930007C6676 /* SpriteKit.framework */; };
+		B0DFCEAB18B6CCB1007C6676 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCEA918B6CCB1007C6676 /* InfoPlist.strings */; };
+		B0DFCEAD18B6CCB1007C6676 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B0DFCEAC18B6CCB1007C6676 /* main.m */; };
+		B0DFCEB118B6CCB1007C6676 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCEAF18B6CCB1007C6676 /* Credits.rtf */; };
+		B0DFCEB318B6CCB1007C6676 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCEB218B6CCB1007C6676 /* MainMenu.xib */; };
+		B0DFCEB818B6CCB1007C6676 /* MBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B0DFCEB718B6CCB1007C6676 /* MBAppDelegate.m */; };
+		B0DFCEBB18B6CCB1007C6676 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCEBA18B6CCB1007C6676 /* Spaceship.png */; };
+		B0DFCEBD18B6CCB1007C6676 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCEBC18B6CCB1007C6676 /* Images.xcassets */; };
+		B0DFCEC318B6CCB1007C6676 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0DFCE7218B45930007C6676 /* XCTest.framework */; };
+		B0DFCEC418B6CCB1007C6676 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0DFCE9F18B6CCB1007C6676 /* Cocoa.framework */; };
+		B0DFCECC18B6CCB1007C6676 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCECA18B6CCB1007C6676 /* InfoPlist.strings */; };
+		B0DFCECE18B6CCB1007C6676 /* MadBomberXTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B0DFCECD18B6CCB1007C6676 /* MadBomberXTests.m */; };
+		B0DFCED718B6CCC1007C6676 /* MBBomberScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B0DFCE6718B45930007C6676 /* MBBomberScene.m */; };
+		B0DFCED818B6CCCB007C6676 /* BlownAway.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCE9818B5A602007C6676 /* BlownAway.mp3 */; };
+		B0DFCED918B6CCCB007C6676 /* bombDrop.caf in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCE9618B5A1B6007C6676 /* bombDrop.caf */; };
+		B0DFCEDA18B6CCCB007C6676 /* evilLaugh.caf in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCE9418B5A0F6007C6676 /* evilLaugh.caf */; };
+		B0DFCEDB18B6CCCB007C6676 /* drop.caf in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCE9018B59EED007C6676 /* drop.caf */; };
+		B0DFCEDC18B6CCCB007C6676 /* smallExplosion.caf in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCE8C18B59DC7007C6676 /* smallExplosion.caf */; };
+		B0DFCEDD18B6CCCB007C6676 /* crazyLaugh.caf in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCE8E18B59DDD007C6676 /* crazyLaugh.caf */; };
+		B0DFCEE018B6D77F007C6676 /* MBMouseMotionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B0DFCEDF18B6D77F007C6676 /* MBMouseMotionManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +61,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = B0DFCE4518B45930007C6676;
 			remoteInfo = MadBomber;
+		};
+		B0DFCEC518B6CCB1007C6676 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B0DFCE3E18B45930007C6676 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B0DFCE9D18B6CCB1007C6676;
+			remoteInfo = MadBomberX;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -62,6 +96,33 @@
 		B0DFCE7A18B45930007C6676 /* MadBomberTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MadBomberTests-Info.plist"; sourceTree = "<group>"; };
 		B0DFCE7C18B45930007C6676 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B0DFCE7E18B45930007C6676 /* MadBomberTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MadBomberTests.m; sourceTree = "<group>"; };
+		B0DFCE8C18B59DC7007C6676 /* smallExplosion.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = smallExplosion.caf; sourceTree = "<group>"; };
+		B0DFCE8E18B59DDD007C6676 /* crazyLaugh.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = crazyLaugh.caf; sourceTree = "<group>"; };
+		B0DFCE9018B59EED007C6676 /* drop.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = drop.caf; sourceTree = "<group>"; };
+		B0DFCE9418B5A0F6007C6676 /* evilLaugh.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = evilLaugh.caf; sourceTree = "<group>"; };
+		B0DFCE9618B5A1B6007C6676 /* bombDrop.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = bombDrop.caf; sourceTree = "<group>"; };
+		B0DFCE9818B5A602007C6676 /* BlownAway.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BlownAway.mp3; sourceTree = "<group>"; };
+		B0DFCE9E18B6CCB1007C6676 /* MadBomberX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MadBomberX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0DFCE9F18B6CCB1007C6676 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		B0DFCEA318B6CCB1007C6676 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		B0DFCEA418B6CCB1007C6676 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		B0DFCEA518B6CCB1007C6676 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B0DFCEA818B6CCB1007C6676 /* MadBomberX-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MadBomberX-Info.plist"; sourceTree = "<group>"; };
+		B0DFCEAA18B6CCB1007C6676 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B0DFCEAC18B6CCB1007C6676 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B0DFCEAE18B6CCB1007C6676 /* MadBomberX-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MadBomberX-Prefix.pch"; sourceTree = "<group>"; };
+		B0DFCEB018B6CCB1007C6676 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		B0DFCEB218B6CCB1007C6676 /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		B0DFCEB718B6CCB1007C6676 /* MBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBAppDelegate.m; sourceTree = "<group>"; };
+		B0DFCEB918B6CCB1007C6676 /* MBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBAppDelegate.h; sourceTree = "<group>"; };
+		B0DFCEBA18B6CCB1007C6676 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
+		B0DFCEBC18B6CCB1007C6676 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B0DFCEC218B6CCB1007C6676 /* MadBomberXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MadBomberXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0DFCEC918B6CCB1007C6676 /* MadBomberXTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MadBomberXTests-Info.plist"; sourceTree = "<group>"; };
+		B0DFCECB18B6CCB1007C6676 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B0DFCECD18B6CCB1007C6676 /* MadBomberXTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MadBomberXTests.m; sourceTree = "<group>"; };
+		B0DFCEDE18B6D77F007C6676 /* MBMouseMotionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMouseMotionManager.h; sourceTree = "<group>"; };
+		B0DFCEDF18B6D77F007C6676 /* MBMouseMotionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMouseMotionManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +147,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B0DFCE9B18B6CCB1007C6676 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0DFCEA118B6CCB1007C6676 /* SpriteKit.framework in Frameworks */,
+				B0DFCEA018B6CCB1007C6676 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0DFCEBF18B6CCB1007C6676 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0DFCEC418B6CCB1007C6676 /* Cocoa.framework in Frameworks */,
+				B0DFCEC318B6CCB1007C6676 /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -94,6 +173,8 @@
 			children = (
 				B0DFCE5118B45930007C6676 /* MadBomber */,
 				B0DFCE7818B45930007C6676 /* MadBomberTests */,
+				B0DFCEA618B6CCB1007C6676 /* MadBomberX */,
+				B0DFCEC718B6CCB1007C6676 /* MadBomberXTests */,
 				B0DFCE4818B45930007C6676 /* Frameworks */,
 				B0DFCE4718B45930007C6676 /* Products */,
 			);
@@ -104,6 +185,8 @@
 			children = (
 				B0DFCE4618B45930007C6676 /* MadBomber.app */,
 				B0DFCE7118B45930007C6676 /* MadBomberTests.xctest */,
+				B0DFCE9E18B6CCB1007C6676 /* MadBomberX.app */,
+				B0DFCEC218B6CCB1007C6676 /* MadBomberXTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -116,6 +199,8 @@
 				B0DFCE4D18B45930007C6676 /* UIKit.framework */,
 				B0DFCE4F18B45930007C6676 /* SpriteKit.framework */,
 				B0DFCE7218B45930007C6676 /* XCTest.framework */,
+				B0DFCE9F18B6CCB1007C6676 /* Cocoa.framework */,
+				B0DFCEA218B6CCB1007C6676 /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -123,6 +208,12 @@
 		B0DFCE5118B45930007C6676 /* MadBomber */ = {
 			isa = PBXGroup;
 			children = (
+				B0DFCE9818B5A602007C6676 /* BlownAway.mp3 */,
+				B0DFCE9618B5A1B6007C6676 /* bombDrop.caf */,
+				B0DFCE9418B5A0F6007C6676 /* evilLaugh.caf */,
+				B0DFCE9018B59EED007C6676 /* drop.caf */,
+				B0DFCE8C18B59DC7007C6676 /* smallExplosion.caf */,
+				B0DFCE8E18B59DDD007C6676 /* crazyLaugh.caf */,
 				B0DFCE5A18B45930007C6676 /* MBAppDelegate.h */,
 				B0DFCE5B18B45930007C6676 /* MBAppDelegate.m */,
 				B0DFCE5D18B45930007C6676 /* Main_iPhone.storyboard */,
@@ -167,6 +258,61 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		B0DFCEA218B6CCB1007C6676 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B0DFCEA318B6CCB1007C6676 /* AppKit.framework */,
+				B0DFCEA418B6CCB1007C6676 /* CoreData.framework */,
+				B0DFCEA518B6CCB1007C6676 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		B0DFCEA618B6CCB1007C6676 /* MadBomberX */ = {
+			isa = PBXGroup;
+			children = (
+				B0DFCEBC18B6CCB1007C6676 /* Images.xcassets */,
+				B0DFCEB218B6CCB1007C6676 /* MainMenu.xib */,
+				B0DFCEB918B6CCB1007C6676 /* MBAppDelegate.h */,
+				B0DFCEB718B6CCB1007C6676 /* MBAppDelegate.m */,
+				B0DFCEBA18B6CCB1007C6676 /* Spaceship.png */,
+				B0DFCEA718B6CCB1007C6676 /* Supporting Files */,
+				B0DFCEDE18B6D77F007C6676 /* MBMouseMotionManager.h */,
+				B0DFCEDF18B6D77F007C6676 /* MBMouseMotionManager.m */,
+			);
+			path = MadBomberX;
+			sourceTree = "<group>";
+		};
+		B0DFCEA718B6CCB1007C6676 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B0DFCEA818B6CCB1007C6676 /* MadBomberX-Info.plist */,
+				B0DFCEA918B6CCB1007C6676 /* InfoPlist.strings */,
+				B0DFCEAC18B6CCB1007C6676 /* main.m */,
+				B0DFCEAE18B6CCB1007C6676 /* MadBomberX-Prefix.pch */,
+				B0DFCEAF18B6CCB1007C6676 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B0DFCEC718B6CCB1007C6676 /* MadBomberXTests */ = {
+			isa = PBXGroup;
+			children = (
+				B0DFCECD18B6CCB1007C6676 /* MadBomberXTests.m */,
+				B0DFCEC818B6CCB1007C6676 /* Supporting Files */,
+			);
+			path = MadBomberXTests;
+			sourceTree = "<group>";
+		};
+		B0DFCEC818B6CCB1007C6676 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B0DFCEC918B6CCB1007C6676 /* MadBomberXTests-Info.plist */,
+				B0DFCECA18B6CCB1007C6676 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -205,6 +351,41 @@
 			productReference = B0DFCE7118B45930007C6676 /* MadBomberTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		B0DFCE9D18B6CCB1007C6676 /* MadBomberX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B0DFCED318B6CCB1007C6676 /* Build configuration list for PBXNativeTarget "MadBomberX" */;
+			buildPhases = (
+				B0DFCE9A18B6CCB1007C6676 /* Sources */,
+				B0DFCE9B18B6CCB1007C6676 /* Frameworks */,
+				B0DFCE9C18B6CCB1007C6676 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MadBomberX;
+			productName = MadBomberX;
+			productReference = B0DFCE9E18B6CCB1007C6676 /* MadBomberX.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B0DFCEC118B6CCB1007C6676 /* MadBomberXTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B0DFCED418B6CCB1007C6676 /* Build configuration list for PBXNativeTarget "MadBomberXTests" */;
+			buildPhases = (
+				B0DFCEBE18B6CCB1007C6676 /* Sources */,
+				B0DFCEBF18B6CCB1007C6676 /* Frameworks */,
+				B0DFCEC018B6CCB1007C6676 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B0DFCEC618B6CCB1007C6676 /* PBXTargetDependency */,
+			);
+			name = MadBomberXTests;
+			productName = MadBomberXTests;
+			productReference = B0DFCEC218B6CCB1007C6676 /* MadBomberXTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -216,6 +397,9 @@
 				ORGANIZATIONNAME = "Wayne Hartman";
 				TargetAttributes = {
 					B0DFCE7018B45930007C6676 = {
+						TestTargetID = B0DFCE4518B45930007C6676;
+					};
+					B0DFCEC118B6CCB1007C6676 = {
 						TestTargetID = B0DFCE4518B45930007C6676;
 					};
 				};
@@ -235,6 +419,8 @@
 			targets = (
 				B0DFCE4518B45930007C6676 /* MadBomber */,
 				B0DFCE7018B45930007C6676 /* MadBomberTests */,
+				B0DFCE9D18B6CCB1007C6676 /* MadBomberX */,
+				B0DFCEC118B6CCB1007C6676 /* MadBomberXTests */,
 			);
 		};
 /* End PBXProject section */
@@ -244,11 +430,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0DFCE9118B59EED007C6676 /* drop.caf in Resources */,
+				B0DFCE8F18B59DDD007C6676 /* crazyLaugh.caf in Resources */,
+				B0DFCE9518B5A0F6007C6676 /* evilLaugh.caf in Resources */,
 				B0DFCE6A18B45930007C6676 /* Spaceship.png in Resources */,
+				B0DFCE9718B5A1B6007C6676 /* bombDrop.caf in Resources */,
 				B0DFCE6C18B45930007C6676 /* Images.xcassets in Resources */,
 				B0DFCE6218B45930007C6676 /* Main_iPad.storyboard in Resources */,
+				B0DFCE8D18B59DC7007C6676 /* smallExplosion.caf in Resources */,
 				B0DFCE5F18B45930007C6676 /* Main_iPhone.storyboard in Resources */,
 				B0DFCE5618B45930007C6676 /* InfoPlist.strings in Resources */,
+				B0DFCE9918B5A602007C6676 /* BlownAway.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +449,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0DFCE7D18B45930007C6676 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0DFCE9C18B6CCB1007C6676 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0DFCEDB18B6CCCB007C6676 /* drop.caf in Resources */,
+				B0DFCED918B6CCCB007C6676 /* bombDrop.caf in Resources */,
+				B0DFCEBB18B6CCB1007C6676 /* Spaceship.png in Resources */,
+				B0DFCEBD18B6CCB1007C6676 /* Images.xcassets in Resources */,
+				B0DFCEAB18B6CCB1007C6676 /* InfoPlist.strings in Resources */,
+				B0DFCED818B6CCCB007C6676 /* BlownAway.mp3 in Resources */,
+				B0DFCEDC18B6CCCB007C6676 /* smallExplosion.caf in Resources */,
+				B0DFCEB118B6CCB1007C6676 /* Credits.rtf in Resources */,
+				B0DFCEDA18B6CCCB007C6676 /* evilLaugh.caf in Resources */,
+				B0DFCEDD18B6CCCB007C6676 /* crazyLaugh.caf in Resources */,
+				B0DFCEB318B6CCB1007C6676 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0DFCEC018B6CCB1007C6676 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0DFCECC18B6CCB1007C6676 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +500,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B0DFCE9A18B6CCB1007C6676 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0DFCEAD18B6CCB1007C6676 /* main.m in Sources */,
+				B0DFCED718B6CCC1007C6676 /* MBBomberScene.m in Sources */,
+				B0DFCEE018B6D77F007C6676 /* MBMouseMotionManager.m in Sources */,
+				B0DFCEB818B6CCB1007C6676 /* MBAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0DFCEBE18B6CCB1007C6676 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0DFCECE18B6CCB1007C6676 /* MadBomberXTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -289,6 +526,11 @@
 			isa = PBXTargetDependency;
 			target = B0DFCE4518B45930007C6676 /* MadBomber */;
 			targetProxy = B0DFCE7618B45930007C6676 /* PBXContainerItemProxy */;
+		};
+		B0DFCEC618B6CCB1007C6676 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B0DFCE9D18B6CCB1007C6676 /* MadBomberX */;
+			targetProxy = B0DFCEC518B6CCB1007C6676 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -321,6 +563,30 @@
 			isa = PBXVariantGroup;
 			children = (
 				B0DFCE7C18B45930007C6676 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B0DFCEA918B6CCB1007C6676 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B0DFCEAA18B6CCB1007C6676 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B0DFCEAF18B6CCB1007C6676 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B0DFCEB018B6CCB1007C6676 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		B0DFCECA18B6CCB1007C6676 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B0DFCECB18B6CCB1007C6676 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -472,6 +738,100 @@
 			};
 			name = Release;
 		};
+		B0DFCECF18B6CCB1007C6676 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MadBomberX/MadBomberX-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "MadBomberX/MadBomberX-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B0DFCED018B6CCB1007C6676 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MadBomberX/MadBomberX-Prefix.pch";
+				INFOPLIST_FILE = "MadBomberX/MadBomberX-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		B0DFCED118B6CCB1007C6676 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MadBomber.app/MadBomber";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MadBomberX/MadBomberX-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "MadBomberXTests/MadBomberXTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		B0DFCED218B6CCB1007C6676 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/MadBomber.app/MadBomber";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MadBomberX/MadBomberX-Prefix.pch";
+				INFOPLIST_FILE = "MadBomberXTests/MadBomberXTests-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -491,12 +851,30 @@
 				B0DFCE8418B45930007C6676 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B0DFCE8518B45930007C6676 /* Build configuration list for PBXNativeTarget "MadBomberTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B0DFCE8618B45930007C6676 /* Debug */,
 				B0DFCE8718B45930007C6676 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B0DFCED318B6CCB1007C6676 /* Build configuration list for PBXNativeTarget "MadBomberX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0DFCECF18B6CCB1007C6676 /* Debug */,
+				B0DFCED018B6CCB1007C6676 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B0DFCED418B6CCB1007C6676 /* Build configuration list for PBXNativeTarget "MadBomberXTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0DFCED118B6CCB1007C6676 /* Debug */,
+				B0DFCED218B6CCB1007C6676 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
