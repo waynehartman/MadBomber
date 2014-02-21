@@ -12,7 +12,6 @@
 
 @property (nonatomic, assign, readwrite) MBMouseAcceleration acceleration;
 
-@property (nonatomic, strong) id motionEventHandler;
 @property (nonatomic, assign) CGPoint previousPoint;
 @property (nonatomic, strong) NSTimer *timer;
 
@@ -31,17 +30,9 @@ static NSTimeInterval timeInterval = 0.05;
                                                  repeats:YES];
 }
 
-- (void)setMotionEventHandler:(id)motionEventHandler {
-    if (_motionEventHandler) {
-        [NSEvent removeMonitor:_motionEventHandler];
-    }
-
-    _motionEventHandler = motionEventHandler;
-}
-
 - (void)stopMouseMotionUpdates {
     [self.timer invalidate];
-    self.motionEventHandler = nil;
+    self.timer = nil;
 
     MBMouseAcceleration acceleration = {0, 0};
 
