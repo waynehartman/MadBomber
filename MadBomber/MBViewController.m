@@ -24,6 +24,8 @@
     SKView * skView = (SKView *)self.view;
     skView.showsFPS = YES;
     skView.showsNodeCount = YES;
+    
+    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
 }
 
 - (void)viewWillLayoutSubviews {
@@ -51,6 +53,10 @@
 
 - (BOOL)prefersStatusBarHidden {
     return YES;
+}
+
+- (void)dealloc {
+    [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
 }
 
 @end

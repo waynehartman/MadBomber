@@ -8,6 +8,7 @@
 
 #import "MBBomberScene.h"
 @import AVFoundation;
+@import GameController;
 
 #if TARGET_OS_IPHONE
 @import CoreMotion;
@@ -28,6 +29,7 @@
 @property (nonatomic, assign) NSInteger points;
 @property (nonatomic, strong) SKLabelNode *restartLabel;
 @property (nonatomic, strong) AVAudioPlayer *backgroundAudioPlayer;
+@property (nonatomic, strong) GCController *gameController;
 
 #if TARGET_OS_IPHONE
 @property (nonatomic, strong) CMMotionManager *motionManager;
@@ -40,6 +42,7 @@
 #define USER_DEFAULTS_HIGH_SCORE    @"USER_DEFAULTS_HIGH_SCORE"
 #define NUMBER_OF_BOMBS_IN_QUEUE    15
 #define NAME_RESTART_LABEL          @"NAME_RESTART_LABEL"
+#define NAME_PAUSE_LABEL            @"NAME_PAUSE_LABEL"
 
 @implementation MBBomberScene
 
@@ -48,6 +51,20 @@
         /* Setup your scene here */
         self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
         self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
+
+        if ([GCController controllers].count > 0) {
+            self.gameController = [[GCController controllers] firstObject];
+            [self setupController];
+        }
+
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(controllerDidConnect:)
+                                                     name:GCControllerDidConnectNotification
+                                                   object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(controllerDidDisconnect:)
+                                                     name:GCControllerDidDisconnectNotification
+                                                   object:nil];
 
         [self addChild:self.scoreNode];
         [self addChild:self.bomber];
@@ -70,6 +87,27 @@
     }
 
     return self;
+}
+
+#pragma mark - Super Overrides
+
+- (void)setPaused:(BOOL)paused {
+    [super setPaused:paused];
+
+    if (self.paused) {
+        [self.backgroundAudioPlayer stop];
+        SKLabelNode *pausedNode = [SKLabelNode labelNodeWithFontNamed:@"Avenir"];
+        pausedNode.name = NAME_PAUSE_LABEL;
+        pausedNode.fontSize = 50.0f;
+        pausedNode.text = @"Paused";
+        pausedNode.position = CGPointMake(self.frame.size.width * 0.5, self.frame.size.height * 0.5);
+
+        [self addChild:pausedNode];
+    } else {
+        [self.backgroundAudioPlayer play];
+        SKNode *node = [self childNodeWithName:NAME_PAUSE_LABEL];
+        [node removeFromParent];
+    }
 }
 
 #pragma mark - Lazy Loaders
@@ -178,7 +216,7 @@
     /* Called before each frame is rendered */
     
     double curTime = CACurrentMediaTime();
-    if (curTime > _nextBombToSpawn && !_gameOver) {
+    if (curTime > _nextBombToSpawn && !_gameOver && !self.paused) {
         float randSecs = [self randomValueBetween:0.20 andValue:1.0];
         _nextBombToSpawn = randSecs + curTime;
 
@@ -208,7 +246,11 @@
     }
     
     if (!_gameOver) {
-        [self updatePlayerPositionFromMotionManager];
+        if (_gameController) {
+            [self updatePlayerFromGameController];
+        } else {
+            [self updatePlayerPositionFromMotionManager];
+        }
 
         for (SKSpriteNode *bomb in self.bombs) {
             if (bomb.hidden) {
@@ -256,8 +298,11 @@
     self.player.physicsBody.dynamic = YES;
     self.player.physicsBody.affectedByGravity = NO;
     self.player.physicsBody.mass = 0.01;
+    self.player.physicsBody.allowsRotation = NO;
 
-    [self startMonitoringAcceleration];
+    if (!_gameController) {
+        [self startMonitoringAcceleration];
+    }
 
     _gameOver = NO;
     [self moveTheBomber];
@@ -408,8 +453,58 @@
 #endif
 }
 
+- (void)updatePlayerFromGameController {
+    float force = 0.0f;
+    BOOL shouldApplyForce = NO;
+
+    if (_gameController.extendedGamepad) {
+        BOOL leftTriggerPressed = _gameController.extendedGamepad.leftTrigger.value > 0.0f;
+        BOOL leftShoulderPressed = _gameController.extendedGamepad.leftShoulder.value > 0.0f;
+
+        BOOL rightTriggerPressed = _gameController.extendedGamepad.rightTrigger.value > 0.0f;
+        BOOL rightShoulderPressed = _gameController.extendedGamepad.rightShoulder.value > 0.0f;
+
+        if (leftShoulderPressed || leftTriggerPressed) {
+            force = -MAX(_gameController.extendedGamepad.leftShoulder.value, _gameController.extendedGamepad.leftTrigger.value);
+            shouldApplyForce = YES;
+        } else if (rightShoulderPressed || rightTriggerPressed) {
+            force = MAX(_gameController.extendedGamepad.rightShoulder.value, _gameController.extendedGamepad.rightTrigger.value);
+            shouldApplyForce = YES;
+        }
+    } else {
+        BOOL leftPressed = _gameController.gamepad.leftShoulder.value > 0.0f;
+        BOOL rightPressed = _gameController.gamepad.rightShoulder.value > 0.0f;
+
+        if (leftPressed || rightPressed) {
+            if (leftPressed && rightPressed) {
+                force = -_gameController.gamepad.leftShoulder.value;
+            } else if (leftPressed){
+                force = -_gameController.gamepad.leftShoulder.value;
+            } else if (rightPressed) {
+                force = _gameController.gamepad.rightShoulder.value;
+            }
+
+            shouldApplyForce = YES;
+        }
+    }
+
+    if (shouldApplyForce) {
+        [self applyPlayerForce:CGVectorMake(20.0f * force, 0.0f)];
+    }
+}
+
 - (void)applyPlayerForce:(CGVector)vector {
     [self.player.physicsBody applyForce:vector];
+}
+
+#pragma mark - Controller setup
+
+- (void) setupController {
+    __weak typeof(self) weakSelf = self;
+
+    self.gameController.controllerPausedHandler = ^(GCController *controller) {
+        weakSelf.paused = !weakSelf.paused;
+    };
 }
 
 #pragma mark - Utility Methods
@@ -429,6 +524,21 @@
     self.scoreNode.text = text;
 }
 
+#pragma mark - Notifications
+
+- (void)controllerDidConnect:(NSNotification *)notification {
+    _gameController = notification.object;
+    [self setupController];
+    [self stopMonitoringAcceleration];
+}
+
+- (void)controllerDidDisconnect:(NSNotification *)notification {
+    _gameController = nil;
+    if (!_gameOver) {
+        [self startMonitoringAcceleration];
+    }
+}
+
 #pragma mark - Music
 
 - (void)startBackgroundMusic {
@@ -444,6 +554,12 @@
     self.backgroundAudioPlayer.numberOfLoops = -1;
     [self.backgroundAudioPlayer setVolume:0.33];
     [self.backgroundAudioPlayer play];
+}
+
+#pragma mark - Memory
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end
