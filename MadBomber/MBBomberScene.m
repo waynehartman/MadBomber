@@ -265,7 +265,6 @@
                 [self.player runAction:[SKAction playSoundFileNamed:@"drop.caf" waitForCompletion:NO]];
             } else if (bomb.position.y < (bomb.frame.size.width * 0.5)) { //    check touched bottom
                 [self endTheGame];
-                NSLog(@"kaboom!");
                 break;
             }
         }
@@ -279,8 +278,8 @@
 
     [self.bomber runAction:[SKAction playSoundFileNamed:@"evilLaugh.caf" waitForCompletion:NO]];
 
-    self.bomber.position = CGPointMake(100.0f, self.frame.size.height - self.bomber.size.height);
-    self.player.position = CGPointMake(100.0f, (self.player.size.height * 0.5f) + 5.0f);
+    self.bomber.position = CGPointMake(self.frame.size.width * 0.5f, self.frame.size.height - self.bomber.size.height);
+    self.player.position = CGPointMake(self.frame.size.width * 0.5f, (self.player.size.height * 0.5f) + 5.0f);
 
     self.points = 0;
     self.player.hidden = NO;
@@ -435,7 +434,6 @@
 #if TARGET_OS_IPHONE
     if (self.motionManager.accelerometerAvailable && self.motionManager.accelerometerActive) {
         [self.motionManager stopAccelerometerUpdates];
-        NSLog(@"accelerometer updates off...");
     }
 #else
     [self.motionManager stopMouseMotionUpdates];
