@@ -23,6 +23,11 @@
       "idiom" : "ipad",
       "filename" : "bomber~ipad@2x.png",
       "scale" : "2x"
+    },
+    {
+      "idiom" : "tv",
+      "filename" : "bomber~tvos.png",
+      "scale" : "1x"
     }
   ],
   "info" : {

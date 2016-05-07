@@ -11,7 +11,7 @@
 
 @interface MBViewController ()
 
-@property (nonatomic, strong) SKScene *scene;
+@property (nonatomic, strong) MBBomberScene *scene;
 
 @end
 
@@ -25,6 +25,10 @@
     skView.showsFPS = YES;
     skView.showsNodeCount = YES;
     
+    
+    
+    
+    
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
 }
 
@@ -33,14 +37,29 @@
         SKView *view = (SKView *)self.view;
         
         // Create and configure the scene.
-        SKScene * scene = [MBBomberScene sceneWithSize:view.bounds.size];
+        MBBomberScene * scene = [MBBomberScene sceneWithSize:view.bounds.size];
         scene.scaleMode = SKSceneScaleModeAspectFill;
-
+#if TARGET_OS_TV
+        UITapGestureRecognizer *playRecognizer = [[UITapGestureRecognizer alloc] init];
+        playRecognizer.allowedPressTypes = @[@(UIPressTypePlayPause)];
+        [playRecognizer addTarget:scene action:@selector(togglePlayPause)];
+        
+        UIPanGestureRecognizer *swipeRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
+        
+        [self.view addGestureRecognizer:swipeRecognizer];
+        [self.view addGestureRecognizer:playRecognizer];
+#endif
         self.scene = scene;
 
         // Present the scene.
         [view presentScene:scene];
     }
+}
+
+- (void)handleSwipe:(UIPanGestureRecognizer *)recognizer {
+    CGPoint velocity = [recognizer velocityInView:self.view];
+    MBSwipeDirection direction = velocity.x > 0;
+    [self.scene swipeWithDirection:direction velocity:velocity];
 }
 
 - (BOOL)shouldAutorotate {

@@ -12,7 +12,9 @@
 
 #import "MBToken.h"
 
-#if TARGET_OS_IPHONE
+#if TARGET_OS_TV
+
+#elif TARGET_OS_IPHONE
 @import CoreMotion;
 #else
 #import "MBMouseMotionManager.h"
@@ -41,7 +43,9 @@
 @property (nonatomic, strong) NSArray<SKColor *> *meterColors;
 @property (nonatomic, assign) NSInteger stageLevel;
 
-#if TARGET_OS_IPHONE
+#if TARGET_OS_TV
+
+#elif TARGET_OS_IPHONE
 @property (nonatomic, strong) CMMotionManager *motionManager;
 #else
 @property (nonatomic, strong) MBMouseMotionManager *motionManager;
@@ -52,6 +56,28 @@
 #define USER_DEFAULTS_HIGH_SCORE    @"USER_DEFAULTS_HIGH_SCORE"
 #define NAME_RESTART_LABEL          @"NAME_RESTART_LABEL"
 #define NAME_PAUSE_LABEL            @"NAME_PAUSE_LABEL"
+
+
+#if TARGET_OS_TV
+
+static CGFloat meterWidth = 100.0f;
+static CGFloat meterLabelTextSize = 50.0f;
+static CGFloat meterX = 100.0f;
+
+#elif TARGET_OS_IPHONE
+
+static CGFloat meterWidth = 50.0f;
+static CGFloat meterLabelTextSize = 20.0f;
+static CGFloat meterX = 20.0f;
+
+#else
+
+static CGFloat meterWidth = 100.0f;
+static CGFloat meterLabelTextSize = 20.0f;
+static CGFloat meterX = 20.0f;
+
+#endif
+
 
 @implementation MBBomberScene
 
@@ -84,7 +110,7 @@
                                                      name:GCControllerDidDisconnectNotification
                                                    object:nil];
 
-//        [self addChild:self.scoreNode];
+        [self addChild:self.scoreNode];
         [self addChild:self.bomber];
         [self addChild:self.waterLevelMeter];
         [self.waterLevelMeter addChild:self.meterLabel];
@@ -93,8 +119,14 @@
         [self addChild:self.player];
 
         [self refreshHighScore];
-
-        self.scoreNode.position = CGPointMake(CGRectGetMidX(self.frame), self.frame.size.height - self.scoreNode.frame.size.height);
+#if TARGET_OS_TV
+        CGFloat topMargin = 40.0f;
+#else
+        CGFloat topMargin = 0.0f;
+#endif
+        
+        
+        self.scoreNode.position = CGPointMake(CGRectGetMidX(self.frame), self.frame.size.height - self.scoreNode.frame.size.height - topMargin);
 
         for (SKNode *bomb in self.bombs) {
             bomb.hidden = YES;
@@ -177,7 +209,11 @@
 - (SKLabelNode *)scoreNode {
     if (!_scoreNode) {
         SKLabelNode *scoreNode = [SKLabelNode labelNodeWithFontNamed:@"Avenir"];
+#if TARGET_OS_TV
+        scoreNode.fontSize = 50;
+#else
         scoreNode.fontSize = 20;
+#endif
         _scoreNode = scoreNode;
     }
     
@@ -187,7 +223,7 @@
 - (SKLabelNode *)meterLabel {
     if (!_meterLabel) {
         _meterLabel = [SKLabelNode labelNodeWithFontNamed:@"Avenir"];
-        _meterLabel.fontSize = 18;
+        _meterLabel.fontSize = meterLabelTextSize;
         _meterLabel.fontColor = [SKColor whiteColor];
     }
 
@@ -204,13 +240,14 @@
 
 - (SKShapeNode *)waterLevelMeter {
     if (!_waterLevelMeter) {
-        _waterLevelMeter = [SKShapeNode shapeNodeWithRect:CGRectMake(20.0f, 0.0f, 50.0f, self.maxMeterSize)];
+        _waterLevelMeter = [SKShapeNode shapeNodeWithRect:CGRectMake(meterX, 0.0f, meterWidth, self.maxMeterSize)];
     }
     
     return _waterLevelMeter;
 }
 
-#if TARGET_OS_IPHONE
+#if TARGET_OS_TV
+#elif TARGET_OS_IPHONE
 - (CMMotionManager *)motionManager {
     if (!_motionManager) {
         _motionManager = [[CMMotionManager alloc] init];
@@ -231,7 +268,11 @@
 - (SKLabelNode *)restartLabel {
     if (!_restartLabel) {
         _restartLabel = [[SKLabelNode alloc] initWithFontNamed:@"Avenir"];
+#if TARGET_OS_TV
+        _restartLabel.fontSize = 70.0f;
+#else
         _restartLabel.fontSize = 40.0f;
+#endif
     }
 
     return _restartLabel;
@@ -335,13 +376,11 @@
         
         
         CGFloat newMeterHeight = (self.currentLevel / self.startingWaterLevel) * self.maxMeterSize;
-
-        CGFloat originX = 20.0f;
         
-        self.waterLevelMeter.path = [UIBezierPath bezierPathWithRect:CGRectMake(originX,
+        self.waterLevelMeter.path = [UIBezierPath bezierPathWithRect:CGRectMake(meterX,
                                                                                 0.0f,
-                                                                                50.0f, newMeterHeight)].CGPath;
-        self.meterLabel.position = CGPointMake((self.waterLevelMeter.frame.size.width * 0.5f) + originX,
+                                                                                meterWidth, newMeterHeight)].CGPath;
+        self.meterLabel.position = CGPointMake((self.waterLevelMeter.frame.size.width * 0.5f) + meterX,
                                                newMeterHeight + 10.0f);
 
         if (self.currentLevel <= 0.0f) {
@@ -447,7 +486,11 @@
     }
 
     [self addChild:self.restartLabel];
+#if TARGET_OS_TV
+    self.restartLabel.text = @"GAME OVER!\nPress Play/Pause to Start Again!";
+#else
     self.restartLabel.text = @"GAME OVER...Restart?";
+#endif
     self.restartLabel.position = CGPointMake(self.frame.size.width * 0.5f, self.frame.size.height * 0.5f);
     self.restartLabel.scale = 0.01;
 
@@ -528,8 +571,14 @@
 
 #pragma mark - Acceleration
 
+- (void)swipeWithDirection:(MBSwipeDirection)direction velocity:(CGPoint)velocity {
+    [self applyPlayerForce:CGVectorMake(velocity.x * 0.02, 0.0f)];
+}
+
 - (void)startMonitoringAcceleration {
-#if TARGET_OS_IPHONE
+#if TARGET_OS_TV
+    //DO NOTHING
+#elif TARGET_OS_IPHONE
     if (self.motionManager.accelerometerAvailable) {
         [self.motionManager startAccelerometerUpdates];
     }
@@ -539,7 +588,9 @@
 }
 
 - (void)stopMonitoringAcceleration {
-#if TARGET_OS_IPHONE
+#if TARGET_OS_TV
+    // DO NOTHING
+#elif TARGET_OS_IPHONE
     if (self.motionManager.accelerometerAvailable && self.motionManager.accelerometerActive) {
         [self.motionManager stopAccelerometerUpdates];
     }
@@ -549,7 +600,9 @@
 }
 
 - (void)updatePlayerPositionFromMotionManager {
-#if TARGET_OS_IPHONE
+#if TARGET_OS_TV
+    // DO NOTHING
+#elif TARGET_OS_IPHONE
     CMAccelerometerData* data = self.motionManager.accelerometerData;
     if (fabs(data.acceleration.y) > 0.1) {
         [self applyPlayerForce:CGVectorMake(-20.0f * data.acceleration.y, 0.0f)];
@@ -611,6 +664,15 @@
 }
 
 #pragma mark - Controller setup
+
+- (void)togglePlayPause {
+    if (_gameOver) {
+        [self.restartLabel removeFromParent];
+        [self startTheGame];
+    } else {
+        [self.scene setPaused:!self.scene.isPaused];
+    }
+}
 
 - (void) setupController {
     __weak typeof(self) weakSelf = self;

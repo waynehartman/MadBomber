@@ -24,6 +24,11 @@
       "idiom" : "ipad",
       "filename" : "player~ipad@2x.png",
       "scale" : "2x"
+    },
+    {
+      "idiom" : "tv",
+      "filename" : "player~tvos.png",
+      "scale" : "1x"
     }
   ],
   "info" : {

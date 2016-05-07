@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>MadBomberTV.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>MadBomberX.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -17,6 +22,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>B07A0DA41CDDF73400D08CF0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>B0DFCE4518B45930007C6676</key>
 		<dict>
 			<key>primary</key>
