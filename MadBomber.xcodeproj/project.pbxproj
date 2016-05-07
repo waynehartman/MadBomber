@@ -393,7 +393,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = MB;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Wayne Hartman";
 				TargetAttributes = {
 					B0DFCE7018B45930007C6676 = {
@@ -612,6 +612,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -674,6 +675,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MadBomber/MadBomber-Prefix.pch";
 				INFOPLIST_FILE = "MadBomber/MadBomber-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.waynehartman.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
@@ -688,6 +690,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MadBomber/MadBomber-Prefix.pch";
 				INFOPLIST_FILE = "MadBomber/MadBomber-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.waynehartman.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
@@ -710,6 +713,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "MadBomberTests/MadBomberTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.waynehartman.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -728,6 +732,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MadBomber/MadBomber-Prefix.pch";
 				INFOPLIST_FILE = "MadBomberTests/MadBomberTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.waynehartman.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -752,6 +757,7 @@
 				);
 				INFOPLIST_FILE = "MadBomberX/MadBomberX-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.waynehartman.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
@@ -774,6 +780,7 @@
 				GCC_PREFIX_HEADER = "MadBomberX/MadBomberX-Prefix.pch";
 				INFOPLIST_FILE = "MadBomberX/MadBomberX-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.waynehartman.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
@@ -799,6 +806,7 @@
 				);
 				INFOPLIST_FILE = "MadBomberXTests/MadBomberXTests-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.waynehartman.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				TEST_HOST = "$(BUNDLE_LOADER)";
@@ -821,6 +829,7 @@
 				GCC_PREFIX_HEADER = "MadBomberX/MadBomberX-Prefix.pch";
 				INFOPLIST_FILE = "MadBomberXTests/MadBomberXTests-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.waynehartman.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				TEST_HOST = "$(BUNDLE_LOADER)";
