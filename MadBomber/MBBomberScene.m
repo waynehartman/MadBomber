@@ -31,6 +31,7 @@
 @property (nonatomic, strong) NSMutableArray *bombs;
 @property (nonatomic, strong) SKSpriteNode *bomber;
 @property (nonatomic, strong) SKSpriteNode *player;
+@property (nonatomic, strong) SKSpriteNode *background;
 @property (nonatomic, assign) NSInteger points;
 @property (nonatomic, strong) SKLabelNode *restartLabel;
 @property (nonatomic, strong) AVAudioPlayer *backgroundAudioPlayer;
@@ -46,6 +47,7 @@
 @property (nonatomic, assign) NSInteger stageLevel;
 @property (nonatomic, strong) NSArray<NSString *> *noSFX;
 @property (nonatomic, strong) NSArray<NSString *> *yesSFX;
+@property (nonatomic, strong) SKEffectNode *blurNode;
 
 
 
@@ -110,7 +112,11 @@ static CGFloat meterX = 20.0f;
             self.gameController = [[GCController controllers] firstObject];
             [self setupController];
         }
-        
+
+        CIFilter *blur = [CIFilter filterWithName:@"CIGaussianBlur" keysAndValues:@"inputRadius", @1.0f, nil];
+        self.filter = blur;
+        self.shouldEnableEffects = NO;
+
         self.noSFX = @[
                         @"no1",
                         @"no2",
@@ -139,6 +145,11 @@ static CGFloat meterX = 20.0f;
                                                      name:GCControllerDidDisconnectNotification
                                                    object:nil];
 
+        self.background = [SKSpriteNode spriteNodeWithImageNamed:@"gameBG"];
+        self.background.size = self.size;
+        self.background.position = CGPointMake(self.size.width * 0.5f, self.size.height * 0.5f);
+        
+        [self addChild:self.background];
         [self addChild:self.scoreNode];
         [self addChild:self.bomber];
         [self addChild:self.waterLevelMeter];
@@ -409,8 +420,6 @@ static CGFloat meterX = 20.0f;
     }
 
     if (!_gameOver) {
-        
-
         if (_gameController) {
             [self updatePlayerFromGameController];
         } else {
@@ -438,11 +447,28 @@ static CGFloat meterX = 20.0f;
                     NSString *filename = [self randomSoundFileNameFromArray:self.noSFX];
                     
                     [bomb runAction:[SKAction playSoundFileNamed:filename waitForCompletion:NO]];
+                    
+                    self.shouldEnableEffects = YES;
+                    
+                    NSTimeInterval duration = 0.12;
+                    [self runAction:[SKAction customActionWithDuration:duration actionBlock:^(SKNode *node, CGFloat elapsedTime){
+                        NSNumber *radius = [NSNumber numberWithFloat:(elapsedTime/duration) * 10.0];
+                        [[(SKEffectNode *)node filter] setValue:radius forKey:@"inputRadius"];
+                    }] completion:^{
+                        [self runAction:[SKAction customActionWithDuration:duration actionBlock:^(SKNode *node, CGFloat elapsedTime){
+                            NSNumber *radius = @(0);
+                            [[(SKEffectNode *)node filter] setValue:radius forKey:@"inputRadius"];
+                        }] completion:^{
+                            
+                        }];
+                    }];
                 }
                 break;
             }
         }
 
+        
+        
         if (!_waterDropNode.hidden && [_waterDropNode intersectsNode:self.player]) { // caught it!
             self.currentLevel += _waterDropNode.value;
             _waterDropNode.hidden = YES;
@@ -457,12 +483,13 @@ static CGFloat meterX = 20.0f;
         if (newMeterHeight > self.maxMeterSize) {
             newMeterHeight = self.maxMeterSize;
         }
-
+        
         self.waterLevelMeter.path = [UIBezierPath bezierPathWithRect:CGRectMake(meterX,
                                                                                 0.0f,
                                                                                 meterWidth, newMeterHeight)].CGPath;
         self.meterLabel.position = CGPointMake((self.waterLevelMeter.frame.size.width * 0.5f) + meterX,
                                                newMeterHeight + 10.0f);
+
 
         if (self.currentLevel <= 0.0f) {
             self.currentLevel = 0.0f;

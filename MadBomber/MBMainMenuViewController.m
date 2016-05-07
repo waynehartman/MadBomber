@@ -24,6 +24,7 @@
 @interface MBMainMenuViewController () <MBViewControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel *aquiferLevelLabel;
+@property (strong, nonatomic) IBOutlet UILabel *historicalDayLevelLabel;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (nonatomic, strong) EAANetworkController *networkController;
 @property (nonatomic, strong) EAAWellReading *currentReading;
@@ -57,9 +58,14 @@
     __weak typeof(self) weakSelf = self;
 
     self.activityIndicator.hidden = NO;
-    [self.networkController fetchCurrentLevelFromWell:EAAWellLocationSanAntonio completion:^(EAAWellReading *reading, NSError *error) {
+    
+    EAAWellLocation location = EAAWellLocationSanAntonio;
+    
+    dispatch_group_t activity = dispatch_group_create();
+    
+    dispatch_group_enter(activity);
+    [self.networkController fetchCurrentLevelFromWell:location completion:^(EAAWellReading *reading, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            weakSelf.activityIndicator.hidden = YES;
             weakSelf.currentReading = reading;
 
             if (!error) {
@@ -67,8 +73,28 @@
             } else {
                 weakSelf.aquiferLevelLabel.text = @"";
             }
+
+            dispatch_group_leave(activity);
         });
     }];
+    
+    dispatch_group_enter(activity);
+    [self.networkController fetchWellDataFromWell:location completion:^(EAAWell *well, NSError *error)
+    {
+        long average = [[well historicalAverageForDate:[NSDate date]] longValue];
+
+        if (!error) {
+            weakSelf.historicalDayLevelLabel.text = [NSString stringWithFormat:@"Historical Average: %li ft.", average];
+        } else {
+            NSLog(@"uh oh");
+        }
+        
+        dispatch_group_leave(activity);
+    }];
+    
+    dispatch_group_notify(activity, dispatch_get_main_queue(), ^{
+        weakSelf.activityIndicator.hidden = YES;
+    });
 }
 
 - (BOOL)prefersStatusBarHidden {
@@ -106,7 +132,7 @@
             NSString *phoneNumber = [[alert.textFields firstObject] text];
             NSString *message = [[alert.textFields lastObject] text];
             
-            KandySMSMessage *smsMessage = [[KandySMSMessage alloc] initWithText:message recipient:phoneNumber displayName:@""];
+            KandySMSMessage *smsMessage = [[KandySMSMessage alloc] initWithText:message recipient:phoneNumber displayName:@"Wayne"];
 
             [[Kandy sharedInstance].services.chat sendSMS:smsMessage responseCallback:^(NSError *error) {
                 if (!error) {
