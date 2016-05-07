@@ -10,4 +10,6 @@
 
 @interface MBBomberScene : SKScene
 
+@property (nonatomic, assign) CGFloat startingWaterLevel;
+
 @end

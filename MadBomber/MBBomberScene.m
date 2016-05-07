@@ -10,6 +10,8 @@
 @import AVFoundation;
 @import GameController;
 
+#import "MBToken.h"
+
 #if TARGET_OS_IPHONE
 @import CoreMotion;
 #else
@@ -30,6 +32,14 @@
 @property (nonatomic, strong) SKLabelNode *restartLabel;
 @property (nonatomic, strong) AVAudioPlayer *backgroundAudioPlayer;
 @property (nonatomic, strong) GCController *gameController;
+@property (nonatomic, assign) CGFloat currentLevel;
+@property (nonatomic, strong) SKShapeNode *waterLevelMeter;
+@property (nonatomic, strong) SKLabelNode *meterLabel;
+
+@property (nonatomic, assign) CGFloat lastPosition;
+@property (nonatomic, assign) CGFloat maxMeterSize;
+@property (nonatomic, strong) NSArray<SKColor *> *meterColors;
+@property (nonatomic, assign) NSInteger stageLevel;
 
 #if TARGET_OS_IPHONE
 @property (nonatomic, strong) CMMotionManager *motionManager;
@@ -40,7 +50,6 @@
 @end
 
 #define USER_DEFAULTS_HIGH_SCORE    @"USER_DEFAULTS_HIGH_SCORE"
-#define NUMBER_OF_BOMBS_IN_QUEUE    15
 #define NAME_RESTART_LABEL          @"NAME_RESTART_LABEL"
 #define NAME_PAUSE_LABEL            @"NAME_PAUSE_LABEL"
 
@@ -51,6 +60,15 @@
         /* Setup your scene here */
         self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
         self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
+        self.maxMeterSize = self.size.height * 0.75;
+        self.meterColors = @[
+                                [SKColor blueColor],
+                                [SKColor greenColor],
+                                [SKColor yellowColor],
+                                [SKColor orangeColor],
+                                [SKColor redColor],
+                                [SKColor colorWithRed:0.5f green:0.0f blue:0.0f alpha:1.0f],
+                             ];
 
         if ([GCController controllers].count > 0) {
             self.gameController = [[GCController controllers] firstObject];
@@ -66,8 +84,12 @@
                                                      name:GCControllerDidDisconnectNotification
                                                    object:nil];
 
-        [self addChild:self.scoreNode];
+//        [self addChild:self.scoreNode];
         [self addChild:self.bomber];
+        [self addChild:self.waterLevelMeter];
+        [self.waterLevelMeter addChild:self.meterLabel];
+        self.meterLabel.position = CGPointMake(self.waterLevelMeter.frame.size.width * 0.5f, self.waterLevelMeter.frame.size.height);
+        self.waterLevelMeter.fillColor = [[SKColor blueColor] colorWithAlphaComponent:0.75f];
         [self addChild:self.player];
 
         [self refreshHighScore];
@@ -114,10 +136,27 @@
 
 - (NSMutableArray *)bombs {
     if (!_bombs) {
-        NSMutableArray *bombs = [[NSMutableArray alloc] initWithCapacity:NUMBER_OF_BOMBS_IN_QUEUE];
+        NSDictionary *tokenData = @{
+                                    @(-30): @"sink",
+                                    @(-50): @"washer",
+                                    @(-100): @"sprinkler",
+                                    };
+        
+        NSInteger bombCount = tokenData.allKeys.count * 7;
 
-        for (int i = 0; i < NUMBER_OF_BOMBS_IN_QUEUE; i++) {
-            SKSpriteNode *bomb = [[SKSpriteNode alloc] initWithImageNamed:@"bomb"];
+        NSMutableArray *bombs = [[NSMutableArray alloc] initWithCapacity:bombCount];
+
+        NSArray *allKeys = tokenData.allKeys;
+
+        for (int i = 0; i < bombCount; i++) {
+            NSUInteger index = (NSUInteger)arc4random_uniform((u_int32_t)allKeys.count);
+            id key = allKeys[index];
+
+            NSString *imageName = tokenData[key];
+
+            MBToken *bomb = [[MBToken alloc] initWithImageNamed:imageName];
+            bomb.value = [key integerValue];
+
             [bombs addObject:bomb];
         }
 
@@ -145,12 +184,30 @@
     return _scoreNode;
 }
 
+- (SKLabelNode *)meterLabel {
+    if (!_meterLabel) {
+        _meterLabel = [SKLabelNode labelNodeWithFontNamed:@"Avenir"];
+        _meterLabel.fontSize = 18;
+        _meterLabel.fontColor = [SKColor whiteColor];
+    }
+
+    return _meterLabel;
+}
+
 - (SKSpriteNode *)player {
     if (!_player) {
         _player = [[SKSpriteNode alloc] initWithImageNamed:@"player"];
     }
     
     return _player;
+}
+
+- (SKShapeNode *)waterLevelMeter {
+    if (!_waterLevelMeter) {
+        _waterLevelMeter = [SKShapeNode shapeNodeWithRect:CGRectMake(20.0f, 0.0f, 50.0f, self.maxMeterSize)];
+    }
+    
+    return _waterLevelMeter;
 }
 
 #if TARGET_OS_IPHONE
@@ -246,13 +303,17 @@
     }
     
     if (!_gameOver) {
+        
+
         if (_gameController) {
             [self updatePlayerFromGameController];
         } else {
             [self updatePlayerPositionFromMotionManager];
         }
 
-        for (SKSpriteNode *bomb in self.bombs) {
+        self.lastPosition = self.player.position.x;
+        
+        for (MBToken *bomb in self.bombs) {
             if (bomb.hidden) {
                 continue;
             }
@@ -261,13 +322,51 @@
                 [bomb removeAllActions];
                 bomb.hidden = YES;
 
-                [self incrementScoreByPoints:50];
+                [self incrementScoreByPoints:labs(bomb.value)];
                 [self.player runAction:[SKAction playSoundFileNamed:@"drop.caf" waitForCompletion:NO]];
             } else if (bomb.position.y < (bomb.frame.size.width * 0.5)) { //    check touched bottom
-                [self endTheGame];
+                if (!bomb.hidden) {
+                    self.currentLevel += bomb.value;
+                    bomb.hidden = YES;
+                }
                 break;
             }
         }
+        
+        
+        CGFloat newMeterHeight = (self.currentLevel / self.startingWaterLevel) * self.maxMeterSize;
+
+        CGFloat originX = 20.0f;
+        
+        self.waterLevelMeter.path = [UIBezierPath bezierPathWithRect:CGRectMake(originX,
+                                                                                0.0f,
+                                                                                50.0f, newMeterHeight)].CGPath;
+        self.meterLabel.position = CGPointMake((self.waterLevelMeter.frame.size.width * 0.5f) + originX,
+                                               newMeterHeight + 10.0f);
+
+        if (self.currentLevel <= 0.0f) {
+            self.currentLevel = 0.0f;
+            [self endTheGame];
+        }
+        
+        // Updates the stage level
+        CGFloat percentage = self.currentLevel / self.startingWaterLevel;
+        CGFloat increments = 1.0f / (CGFloat)self.meterColors.count;
+        NSInteger calculatedStageLevel = self.meterColors.count - (percentage / increments);
+        
+        if (calculatedStageLevel != self.stageLevel) {
+            if (calculatedStageLevel > self.meterColors.count - 1) {
+                calculatedStageLevel = self.meterColors.count - 1;
+            }
+
+            self.stageLevel = calculatedStageLevel;
+            
+            SKAction *action = [self getColorFadeActionFrom:self.waterLevelMeter.fillColor
+                                                    toColor:self.meterColors[calculatedStageLevel]];
+            [self.waterLevelMeter runAction:action];
+        }
+
+        self.meterLabel.text = [NSString stringWithFormat:@"%li ft.", (long)self.currentLevel];
     }
 }
 
@@ -276,6 +375,9 @@
 - (void)startTheGame {
     [self killAllActions];
 
+    self.stageLevel = 0;
+    self.waterLevelMeter.fillColor = self.meterColors[self.stageLevel];
+    
     [self.bomber runAction:[SKAction playSoundFileNamed:@"evilLaugh.caf" waitForCompletion:NO]];
 
     self.bomber.position = CGPointMake(self.frame.size.width * 0.5f, self.frame.size.height - self.bomber.size.height);
@@ -284,6 +386,12 @@
     self.points = 0;
     self.player.hidden = NO;
     self.scoreNode.scale = 1.0f;
+
+    if (self.startingWaterLevel == 0.0) {
+        self.startingWaterLevel = 600.0f;
+    }
+
+    self.currentLevel = self.startingWaterLevel;
 
     [self incrementScoreByPoints:0];
 
@@ -493,6 +601,13 @@
 
 - (void)applyPlayerForce:(CGVector)vector {
     [self.player.physicsBody applyForce:vector];
+
+//    if (self.player.position.x > self.lastPosition && self.player.xScale > 0) {
+//        NSLog(@"xscale = %f", self.player.xScale);
+//        self.player.xScale = -1;
+//    } else {
+//        self.player.xScale = 1;
+//    }
 }
 
 #pragma mark - Controller setup
@@ -552,6 +667,37 @@
     self.backgroundAudioPlayer.numberOfLoops = -1;
     [self.backgroundAudioPlayer setVolume:0.33];
     [self.backgroundAudioPlayer play];
+}
+
+#pragma mark - Shape Animations
+
+-(SKAction*)getColorFadeActionFrom:(SKColor*)col1 toColor:(SKColor*)col2 {
+    
+    // get the Color components of col1 and col2
+    CGFloat r1 = 0.0, g1 = 0.0, b1 = 0.0, a1 =0.0;
+    CGFloat r2 = 0.0, g2 = 0.0, b2 = 0.0, a2 =0.0;
+    [col1 getRed:&r1 green:&g1 blue:&b1 alpha:&a1];
+    [col2 getRed:&r2 green:&g2 blue:&b2 alpha:&a2];
+    
+    // return a color fading on the fill color
+    CGFloat timeToRun = 0.3;
+    
+    return [SKAction customActionWithDuration:timeToRun actionBlock:^(SKNode *node, CGFloat elapsedTime) {
+        
+        CGFloat fraction = elapsedTime / timeToRun;
+        
+        SKColor *col3 = [SKColor colorWithRed:lerp(r1,r2,fraction)
+                                        green:lerp(g1,g2,fraction)
+                                         blue:lerp(b1,b2,fraction)
+                                        alpha:lerp(a1,a2,fraction)];
+        
+        [(SKShapeNode*)node setFillColor:col3];
+//        [(SKShapeNode*)node setStrokeColor:col3];
+    }];
+}
+
+double lerp(double a, double b, double fraction) {
+    return (b-a)*fraction + a;
 }
 
 #pragma mark - Memory

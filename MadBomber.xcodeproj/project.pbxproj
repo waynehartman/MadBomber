@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B07A0D9B1CDD7D6500D08CF0 /* MBToken.m in Sources */ = {isa = PBXBuildFile; fileRef = B07A0D9A1CDD7D6500D08CF0 /* MBToken.m */; };
+		B07A0D9C1CDD7D6500D08CF0 /* MBToken.m in Sources */ = {isa = PBXBuildFile; fileRef = B07A0D9A1CDD7D6500D08CF0 /* MBToken.m */; };
 		B0DFCE4A18B45930007C6676 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0DFCE4918B45930007C6676 /* Foundation.framework */; };
 		B0DFCE4C18B45930007C6676 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0DFCE4B18B45930007C6676 /* CoreGraphics.framework */; };
 		B0DFCE4E18B45930007C6676 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0DFCE4D18B45930007C6676 /* UIKit.framework */; };
@@ -71,6 +73,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B07A0D991CDD7D6500D08CF0 /* MBToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBToken.h; sourceTree = "<group>"; };
+		B07A0D9A1CDD7D6500D08CF0 /* MBToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBToken.m; sourceTree = "<group>"; };
 		B0DFCE4618B45930007C6676 /* MadBomber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MadBomber.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0DFCE4918B45930007C6676 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B0DFCE4B18B45930007C6676 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -222,6 +226,8 @@
 				B0DFCE6718B45930007C6676 /* MBBomberScene.m */,
 				B0DFCE6B18B45930007C6676 /* Images.xcassets */,
 				B0DFCE5218B45930007C6676 /* Supporting Files */,
+				B07A0D991CDD7D6500D08CF0 /* MBToken.h */,
+				B07A0D9A1CDD7D6500D08CF0 /* MBToken.m */,
 			);
 			path = MadBomber;
 			sourceTree = "<group>";
@@ -484,6 +490,7 @@
 				B0DFCE5818B45930007C6676 /* main.m in Sources */,
 				B0DFCE6818B45930007C6676 /* MBBomberScene.m in Sources */,
 				B0DFCE6518B45930007C6676 /* MBViewController.m in Sources */,
+				B07A0D9B1CDD7D6500D08CF0 /* MBToken.m in Sources */,
 				B0DFCE5C18B45930007C6676 /* MBAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -503,6 +510,7 @@
 				B0DFCEAD18B6CCB1007C6676 /* main.m in Sources */,
 				B0DFCED718B6CCC1007C6676 /* MBBomberScene.m in Sources */,
 				B0DFCEE018B6D77F007C6676 /* MBMouseMotionManager.m in Sources */,
+				B07A0D9C1CDD7D6500D08CF0 /* MBToken.m in Sources */,
 				B0DFCEB818B6CCB1007C6676 /* MBAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -667,10 +675,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MadBomber/MadBomber-Prefix.pch";
 				INFOPLIST_FILE = "MadBomber/MadBomber-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.waynehartman.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
@@ -682,10 +690,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MadBomber/MadBomber-Prefix.pch";
 				INFOPLIST_FILE = "MadBomber/MadBomber-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.waynehartman.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
