@@ -199,6 +199,11 @@ static CGFloat meterX = 20.0f;
 
 #pragma mark - Lazy Loaders
 
+- (void)setStartingWaterLevel:(CGFloat)startingWaterLevel {
+    _startingWaterLevel = startingWaterLevel;
+    _currentLevel = startingWaterLevel;
+}
+
 - (NSMutableArray *)bombs {
     if (!_bombs) {
         NSDictionary *tokenData = @{
@@ -317,7 +322,10 @@ static CGFloat meterX = 20.0f;
 }
 
 #pragma mark - Touches / Mouse
-#if TARGET_OS_IPHONE
+
+#if TARGET_OS_TV
+    // DO NOTHING
+#elif TARGET_OS_IPHONE
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
@@ -482,10 +490,7 @@ static CGFloat meterX = 20.0f;
     }
 }
 
-- (void)setStartingWaterLevel:(CGFloat)startingWaterLevel {
-    _startingWaterLevel = startingWaterLevel;
-    _currentLevel = startingWaterLevel;
-}
+
 
 #pragma mark - Setup
 
@@ -535,7 +540,7 @@ static CGFloat meterX = 20.0f;
 
 - (void)endTheGame {
     [self killAllActions];
-    [self runAction:[SKAction playSoundFileNamed:@"crazyLaugh.caf" waitForCompletion:NO]];
+    [self runAction:[SKAction playSoundFileNamed:@"sadtrombone.caf" waitForCompletion:NO]];
 
     self.player.hidden = YES;
     
@@ -620,7 +625,11 @@ static CGFloat meterX = 20.0f;
     float duration = 0.25f;
 
     SKAction *moveAction = [SKAction runBlock:^{
+#if TARGET_OS_TV
+        static float maxDelta = 1100;
+#else
         static float maxDelta = 200;
+#endif
         float min = weakSelf.bomber.position.x - maxDelta;
         float max = weakSelf.bomber.position.x + maxDelta;
 
@@ -651,7 +660,9 @@ static CGFloat meterX = 20.0f;
 #pragma mark - Acceleration
 
 - (void)swipeWithDirection:(MBSwipeDirection)direction velocity:(CGPoint)velocity {
-    [self applyPlayerForce:CGVectorMake(velocity.x * 0.02, 0.0f)];
+    if (!_gameOver) {
+        [self applyPlayerForce:CGVectorMake(velocity.x * 0.01, 0.0f)];
+    }
 }
 
 - (void)startMonitoringAcceleration {

@@ -57,6 +57,11 @@
 		B07608461CDE301B0012354D /* MBInterstitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B07608441CDE301B0012354D /* MBInterstitialViewController.m */; };
 		B07608561CDE38400012354D /* EAACommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07608511CDE382E0012354D /* EAACommon.framework */; };
 		B07608571CDE38400012354D /* EAACommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B07608511CDE382E0012354D /* EAACommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B076085B1CDE3F5D0012354D /* EAACommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07608531CDE382E0012354D /* EAACommon.framework */; };
+		B076085C1CDE3F5D0012354D /* EAACommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B07608531CDE382E0012354D /* EAACommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B07608611CDE44A40012354D /* sadtrombone.caf in Resources */ = {isa = PBXBuildFile; fileRef = B07608601CDE44A40012354D /* sadtrombone.caf */; };
+		B07608621CDE44A40012354D /* sadtrombone.caf in Resources */ = {isa = PBXBuildFile; fileRef = B07608601CDE44A40012354D /* sadtrombone.caf */; };
+		B07608631CDE44A40012354D /* sadtrombone.caf in Resources */ = {isa = PBXBuildFile; fileRef = B07608601CDE44A40012354D /* sadtrombone.caf */; };
 		B07A0D9B1CDD7D6500D08CF0 /* MBToken.m in Sources */ = {isa = PBXBuildFile; fileRef = B07A0D9A1CDD7D6500D08CF0 /* MBToken.m */; };
 		B07A0D9C1CDD7D6500D08CF0 /* MBToken.m in Sources */ = {isa = PBXBuildFile; fileRef = B07A0D9A1CDD7D6500D08CF0 /* MBToken.m */; };
 		B07A0DA91CDDF73500D08CF0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B07A0DA81CDDF73500D08CF0 /* main.m */; };
@@ -155,6 +160,13 @@
 			remoteGlobalIDString = B07A0CBD1CDC2E7400D08CF0;
 			remoteInfo = EAACommon;
 		};
+		B076085D1CDE3F5D0012354D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B07608471CDE382E0012354D /* EAA.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = B07A0CE41CDC2EE100D08CF0;
+			remoteInfo = "EAACommon (tvOS)";
+		};
 		B0DFCE7618B45930007C6676 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B0DFCE3E18B45930007C6676 /* Project object */;
@@ -183,6 +195,17 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B076085F1CDE3F5D0012354D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B076085C1CDE3F5D0012354D /* EAACommon.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -206,6 +229,7 @@
 		B07608431CDE301B0012354D /* MBInterstitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBInterstitialViewController.h; sourceTree = "<group>"; };
 		B07608441CDE301B0012354D /* MBInterstitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBInterstitialViewController.m; sourceTree = "<group>"; };
 		B07608471CDE382E0012354D /* EAA.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = EAA.xcodeproj; path = "EAA Codeathon/EAACommon/EAA.xcodeproj"; sourceTree = "<group>"; };
+		B07608601CDE44A40012354D /* sadtrombone.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sadtrombone.caf; sourceTree = "<group>"; };
 		B07A0D991CDD7D6500D08CF0 /* MBToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBToken.h; sourceTree = "<group>"; };
 		B07A0D9A1CDD7D6500D08CF0 /* MBToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBToken.m; sourceTree = "<group>"; };
 		B07A0DA51CDDF73400D08CF0 /* Aquifer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aquifer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -271,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B07A0DC81CDDF81C00D08CF0 /* SpriteKit.framework in Frameworks */,
+				B076085B1CDE3F5D0012354D /* EAACommon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,6 +352,7 @@
 		B033055E1CDE088A0024E556 /* FX */ = {
 			isa = PBXGroup;
 			children = (
+				B07608601CDE44A40012354D /* sadtrombone.caf */,
 				B0DFCE9618B5A1B6007C6676 /* bombDrop.caf */,
 				B0DFCE9418B5A0F6007C6676 /* evilLaugh.caf */,
 				B0DFCE9018B59EED007C6676 /* drop.caf */,
@@ -541,10 +567,12 @@
 				B07A0DA11CDDF73400D08CF0 /* Sources */,
 				B07A0DA21CDDF73400D08CF0 /* Frameworks */,
 				B07A0DA31CDDF73400D08CF0 /* Resources */,
+				B076085F1CDE3F5D0012354D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				B076085E1CDE3F5D0012354D /* PBXTargetDependency */,
 			);
 			name = AquiferTV;
 			productName = MadBomberTV;
@@ -732,6 +760,7 @@
 				B033057A1CDE088A0024E556 /* no7.caf in Resources */,
 				B03305921CDE0A5F0024E556 /* yes6.caf in Resources */,
 				B033056E1CDE088A0024E556 /* no3.caf in Resources */,
+				B07608631CDE44A40012354D /* sadtrombone.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -752,6 +781,7 @@
 				B0DFCE9718B5A1B6007C6676 /* bombDrop.caf in Resources */,
 				B03305841CDE0A5F0024E556 /* yes2.caf in Resources */,
 				B033059D1CDE27490024E556 /* Main.storyboard in Resources */,
+				B07608611CDE44A40012354D /* sadtrombone.caf in Resources */,
 				B0DFCE6C18B45930007C6676 /* Images.xcassets in Resources */,
 				B03305691CDE088A0024E556 /* no2.caf in Resources */,
 				B03305941CDE0A730024E556 /* saveTheAquifer.caf in Resources */,
@@ -784,6 +814,7 @@
 				B03305851CDE0A5F0024E556 /* yes2.caf in Resources */,
 				B03305791CDE088A0024E556 /* no7.caf in Resources */,
 				B0DFCED918B6CCCB007C6676 /* bombDrop.caf in Resources */,
+				B07608621CDE44A40012354D /* sadtrombone.caf in Resources */,
 				B033056A1CDE088A0024E556 /* no2.caf in Resources */,
 				B0DFCEBB18B6CCB1007C6676 /* Spaceship.png in Resources */,
 				B0DFCEBD18B6CCB1007C6676 /* Images.xcassets in Resources */,
@@ -880,6 +911,11 @@
 			isa = PBXTargetDependency;
 			name = EAACommon;
 			targetProxy = B07608581CDE38400012354D /* PBXContainerItemProxy */;
+		};
+		B076085E1CDE3F5D0012354D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "EAACommon (tvOS)";
+			targetProxy = B076085D1CDE3F5D0012354D /* PBXContainerItemProxy */;
 		};
 		B0DFCE7718B45930007C6676 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

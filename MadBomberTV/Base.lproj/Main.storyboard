@@ -21,22 +21,22 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" text="Save the Aquifer!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="y7O-yP-gtI">
-                                <rect key="frame" x="120" y="100" width="1680" height="117"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="100"/>
+                                <rect key="frame" x="120" y="100" width="1680" height="140"/>
+                                <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="100"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" image="karstonSplash" translatesAutoresizingMaskIntoConstraints="NO" id="f80-wj-fDa">
-                                <rect key="frame" x="636" y="284" width="1164" height="696"/>
+                                <rect key="frame" x="636" y="307" width="1164" height="673"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" text="with Karston" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SZb-PN-WGm">
-                                <rect key="frame" x="120" y="225" width="281" height="59"/>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="50"/>
+                                <rect key="frame" x="120" y="248" width="295" height="70"/>
+                                <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="50"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ObH-cn-z21">
-                                <rect key="frame" x="120" y="365" width="500" height="80"/>
+                                <rect key="frame" x="120" y="492" width="500" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="AcG-tt-8Ub"/>
                                     <constraint firstAttribute="width" constant="500" id="i58-Qa-UAl"/>
@@ -46,27 +46,47 @@
                                     <action selector="didSelectStart:" destination="UEX-ik-0Kf" eventType="primaryActionTriggered" id="2r5-f6-kL1"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="753" verticalCompressionResistancePriority="752" text="Current Aquifer Level: 668ft." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LIR-aW-SFR">
+                                <rect key="frame" x="120" y="353" width="486" height="47"/>
+                                <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="33"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="N45-wz-Lda">
+                                <rect key="frame" x="606" y="345" width="64" height="64"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ObH-cn-z21" firstAttribute="leading" secondItem="SZb-PN-WGm" secondAttribute="leading" id="1fc-OL-Nrx"/>
-                            <constraint firstItem="ObH-cn-z21" firstAttribute="top" secondItem="SZb-PN-WGm" secondAttribute="bottom" constant="81" id="9Ej-yO-xz7"/>
                             <constraint firstItem="er4-B5-QhJ" firstAttribute="leading" secondItem="1dC-nU-UY2" secondAttribute="leading" id="Auw-te-JpN"/>
+                            <constraint firstItem="LIR-aW-SFR" firstAttribute="leading" secondItem="SZb-PN-WGm" secondAttribute="leading" id="CeC-ey-rh2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="y7O-yP-gtI" secondAttribute="trailing" constant="100" id="HT6-gy-rSE"/>
+                            <constraint firstItem="f80-wj-fDa" firstAttribute="leading" secondItem="LIR-aW-SFR" secondAttribute="trailing" constant="30" id="KyO-iY-JCH"/>
+                            <constraint firstItem="LIR-aW-SFR" firstAttribute="top" secondItem="SZb-PN-WGm" secondAttribute="bottom" constant="35" id="Kzn-dW-Wn0"/>
                             <constraint firstItem="f80-wj-fDa" firstAttribute="top" secondItem="y7O-yP-gtI" secondAttribute="bottom" constant="66.5" id="Pb3-2m-u7T"/>
                             <constraint firstItem="f80-wj-fDa" firstAttribute="trailing" secondItem="y7O-yP-gtI" secondAttribute="trailing" id="Pbq-aG-sLl"/>
                             <constraint firstItem="4vW-En-QVI" firstAttribute="top" secondItem="er4-B5-QhJ" secondAttribute="bottom" id="TbJ-9G-gkd"/>
                             <constraint firstItem="SZb-PN-WGm" firstAttribute="top" secondItem="y7O-yP-gtI" secondAttribute="bottom" constant="7.5" id="ToT-RE-jBq"/>
                             <constraint firstAttribute="trailing" secondItem="er4-B5-QhJ" secondAttribute="trailing" id="VhT-Nl-uav"/>
+                            <constraint firstItem="ObH-cn-z21" firstAttribute="top" secondItem="LIR-aW-SFR" secondAttribute="bottom" constant="92" id="YQh-KZ-uQO"/>
                             <constraint firstItem="f80-wj-fDa" firstAttribute="leading" secondItem="ObH-cn-z21" secondAttribute="trailing" constant="16" id="avk-Cg-cp5"/>
+                            <constraint firstItem="ObH-cn-z21" firstAttribute="leading" secondItem="LIR-aW-SFR" secondAttribute="leading" id="dcs-Yb-V65"/>
                             <constraint firstItem="er4-B5-QhJ" firstAttribute="top" secondItem="IEc-Fp-iOZ" secondAttribute="bottom" id="g77-U1-EWI"/>
+                            <constraint firstItem="N45-wz-Lda" firstAttribute="centerY" secondItem="LIR-aW-SFR" secondAttribute="centerY" id="ghz-lx-FSd"/>
                             <constraint firstItem="y7O-yP-gtI" firstAttribute="top" secondItem="IEc-Fp-iOZ" secondAttribute="bottom" constant="100" id="iqz-YU-IoA"/>
+                            <constraint firstItem="N45-wz-Lda" firstAttribute="leading" secondItem="LIR-aW-SFR" secondAttribute="trailing" id="mjB-45-mxR"/>
                             <constraint firstItem="y7O-yP-gtI" firstAttribute="leading" secondItem="1dC-nU-UY2" secondAttribute="leadingMargin" constant="100" id="qys-r8-Jja"/>
                             <constraint firstItem="SZb-PN-WGm" firstAttribute="leading" secondItem="y7O-yP-gtI" secondAttribute="leading" id="t3H-aa-WqZ"/>
                             <constraint firstItem="4vW-En-QVI" firstAttribute="top" secondItem="f80-wj-fDa" secondAttribute="bottom" constant="100" id="tNF-Ox-TeM"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="N45-wz-Lda" id="KJe-VV-ldw"/>
+                        <outlet property="aquiferLevelLabel" destination="LIR-aW-SFR" id="ddO-PH-R2O"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ePr-Jf-soh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
