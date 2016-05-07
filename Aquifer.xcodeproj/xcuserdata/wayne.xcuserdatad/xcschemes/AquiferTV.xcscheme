@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B0DFCE4518B45930007C6676"
-               BuildableName = "MadBomber.app"
-               BlueprintName = "MadBomber"
-               ReferencedContainer = "container:MadBomber.xcodeproj">
+               BlueprintIdentifier = "B07A0DA41CDDF73400D08CF0"
+               BuildableName = "Aquifer.app"
+               BlueprintName = "AquiferTV"
+               ReferencedContainer = "container:Aquifer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,34 +28,14 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B0DFCE7018B45930007C6676"
-               BuildableName = "MadBomberTests.xctest"
-               BlueprintName = "MadBomberTests"
-               ReferencedContainer = "container:MadBomber.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B0DFCEC118B6CCB1007C6676"
-               BuildableName = "MadBomberXTests.xctest"
-               BlueprintName = "MadBomberXTests"
-               ReferencedContainer = "container:MadBomber.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B0DFCE4518B45930007C6676"
-            BuildableName = "MadBomber.app"
-            BlueprintName = "MadBomber"
-            ReferencedContainer = "container:MadBomber.xcodeproj">
+            BlueprintIdentifier = "B07A0DA41CDDF73400D08CF0"
+            BuildableName = "Aquifer.app"
+            BlueprintName = "AquiferTV"
+            ReferencedContainer = "container:Aquifer.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -75,10 +55,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B0DFCE4518B45930007C6676"
-            BuildableName = "MadBomber.app"
-            BlueprintName = "MadBomber"
-            ReferencedContainer = "container:MadBomber.xcodeproj">
+            BlueprintIdentifier = "B07A0DA41CDDF73400D08CF0"
+            BuildableName = "Aquifer.app"
+            BlueprintName = "AquiferTV"
+            ReferencedContainer = "container:Aquifer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -94,10 +74,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B0DFCE4518B45930007C6676"
-            BuildableName = "MadBomber.app"
-            BlueprintName = "MadBomber"
-            ReferencedContainer = "container:MadBomber.xcodeproj">
+            BlueprintIdentifier = "B07A0DA41CDDF73400D08CF0"
+            BuildableName = "Aquifer.app"
+            BlueprintName = "AquiferTV"
+            ReferencedContainer = "container:Aquifer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

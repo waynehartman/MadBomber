@@ -482,6 +482,11 @@ static CGFloat meterX = 20.0f;
     }
 }
 
+- (void)setStartingWaterLevel:(CGFloat)startingWaterLevel {
+    _startingWaterLevel = startingWaterLevel;
+    _currentLevel = startingWaterLevel;
+}
+
 #pragma mark - Setup
 
 - (void)startTheGame {

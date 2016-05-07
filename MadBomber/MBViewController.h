@@ -11,4 +11,6 @@
 
 @interface MBViewController : UIViewController
 
+@property (nonatomic, strong) NSNumber *currentLevel;
+
 @end

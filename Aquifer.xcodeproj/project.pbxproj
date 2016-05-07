@@ -49,10 +49,16 @@
 		B03305941CDE0A730024E556 /* saveTheAquifer.caf in Resources */ = {isa = PBXBuildFile; fileRef = B03305931CDE0A730024E556 /* saveTheAquifer.caf */; };
 		B03305951CDE0A730024E556 /* saveTheAquifer.caf in Resources */ = {isa = PBXBuildFile; fileRef = B03305931CDE0A730024E556 /* saveTheAquifer.caf */; };
 		B03305961CDE0A730024E556 /* saveTheAquifer.caf in Resources */ = {isa = PBXBuildFile; fileRef = B03305931CDE0A730024E556 /* saveTheAquifer.caf */; };
+		B03305991CDE26FA0024E556 /* MBMainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B03305981CDE26FA0024E556 /* MBMainMenuViewController.m */; };
+		B033059A1CDE26FA0024E556 /* MBMainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B03305981CDE26FA0024E556 /* MBMainMenuViewController.m */; };
+		B033059B1CDE26FA0024E556 /* MBMainMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B03305981CDE26FA0024E556 /* MBMainMenuViewController.m */; };
+		B033059D1CDE27490024E556 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B033059C1CDE27490024E556 /* Main.storyboard */; };
+		B07608451CDE301B0012354D /* MBInterstitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B07608441CDE301B0012354D /* MBInterstitialViewController.m */; };
+		B07608461CDE301B0012354D /* MBInterstitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B07608441CDE301B0012354D /* MBInterstitialViewController.m */; };
+		B07608561CDE38400012354D /* EAACommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07608511CDE382E0012354D /* EAACommon.framework */; };
+		B07608571CDE38400012354D /* EAACommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B07608511CDE382E0012354D /* EAACommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B07A0D9B1CDD7D6500D08CF0 /* MBToken.m in Sources */ = {isa = PBXBuildFile; fileRef = B07A0D9A1CDD7D6500D08CF0 /* MBToken.m */; };
 		B07A0D9C1CDD7D6500D08CF0 /* MBToken.m in Sources */ = {isa = PBXBuildFile; fileRef = B07A0D9A1CDD7D6500D08CF0 /* MBToken.m */; };
-		B07A0D9F1CDDF6C300D08CF0 /* MBMainMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B07A0D9E1CDDF6C300D08CF0 /* MBMainMenuScene.m */; };
-		B07A0DA01CDDF6C300D08CF0 /* MBMainMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B07A0D9E1CDDF6C300D08CF0 /* MBMainMenuScene.m */; };
 		B07A0DA91CDDF73500D08CF0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B07A0DA81CDDF73500D08CF0 /* main.m */; };
 		B07A0DAE1CDDF73500D08CF0 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = B07A0DAD1CDDF73500D08CF0 /* art.scnassets */; };
 		B07A0DB41CDDF73500D08CF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B07A0DB21CDDF73500D08CF0 /* Main.storyboard */; };
@@ -68,7 +74,6 @@
 		B07A0DC31CDDF77100D08CF0 /* MBBomberScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B0DFCE6718B45930007C6676 /* MBBomberScene.m */; };
 		B07A0DC41CDDF77700D08CF0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCE6B18B45930007C6676 /* Images.xcassets */; };
 		B07A0DC51CDDF77C00D08CF0 /* MBToken.m in Sources */ = {isa = PBXBuildFile; fileRef = B07A0D9A1CDD7D6500D08CF0 /* MBToken.m */; };
-		B07A0DC61CDDF77C00D08CF0 /* MBMainMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B07A0D9E1CDDF6C300D08CF0 /* MBMainMenuScene.m */; };
 		B07A0DC81CDDF81C00D08CF0 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B07A0DC71CDDF81C00D08CF0 /* SpriteKit.framework */; };
 		B0DFCE4A18B45930007C6676 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0DFCE4918B45930007C6676 /* Foundation.framework */; };
 		B0DFCE4C18B45930007C6676 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0DFCE4B18B45930007C6676 /* CoreGraphics.framework */; };
@@ -77,8 +82,6 @@
 		B0DFCE5618B45930007C6676 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCE5418B45930007C6676 /* InfoPlist.strings */; };
 		B0DFCE5818B45930007C6676 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B0DFCE5718B45930007C6676 /* main.m */; };
 		B0DFCE5C18B45930007C6676 /* MBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B0DFCE5B18B45930007C6676 /* MBAppDelegate.m */; };
-		B0DFCE5F18B45930007C6676 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCE5D18B45930007C6676 /* Main_iPhone.storyboard */; };
-		B0DFCE6218B45930007C6676 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCE6018B45930007C6676 /* Main_iPad.storyboard */; };
 		B0DFCE6518B45930007C6676 /* MBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0DFCE6418B45930007C6676 /* MBViewController.m */; };
 		B0DFCE6818B45930007C6676 /* MBBomberScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B0DFCE6718B45930007C6676 /* MBBomberScene.m */; };
 		B0DFCE6C18B45930007C6676 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0DFCE6B18B45930007C6676 /* Images.xcassets */; };
@@ -117,6 +120,41 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		B076084E1CDE382E0012354D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B07608471CDE382E0012354D /* EAA.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B07A0CCD1CDC2ECF00D08CF0;
+			remoteInfo = EAA_iOS;
+		};
+		B07608501CDE382E0012354D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B07608471CDE382E0012354D /* EAA.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B07A0CBE1CDC2E7500D08CF0;
+			remoteInfo = EAACommon;
+		};
+		B07608521CDE382E0012354D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B07608471CDE382E0012354D /* EAA.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B07A0CED1CDC2EE100D08CF0;
+			remoteInfo = "EAACommon (tvOS)";
+		};
+		B07608541CDE382E0012354D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B07608471CDE382E0012354D /* EAA.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B07A0CF81CDC2F2000D08CF0;
+			remoteInfo = "EAACommon (watchOS)";
+		};
+		B07608581CDE38400012354D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B07608471CDE382E0012354D /* EAA.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = B07A0CBD1CDC2E7400D08CF0;
+			remoteInfo = EAACommon;
+		};
 		B0DFCE7618B45930007C6676 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B0DFCE3E18B45930007C6676 /* Project object */;
@@ -133,6 +171,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B076085A1CDE38400012354D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B07608571CDE38400012354D /* EAACommon.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		B033055F1CDE088A0024E556 /* no1.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = no1.caf; sourceTree = "<group>"; };
 		B03305601CDE088A0024E556 /* no2.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = no2.caf; sourceTree = "<group>"; };
@@ -148,38 +200,40 @@
 		B033057F1CDE0A5F0024E556 /* yes5.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = yes5.caf; sourceTree = "<group>"; };
 		B03305801CDE0A5F0024E556 /* yes6.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = yes6.caf; sourceTree = "<group>"; };
 		B03305931CDE0A730024E556 /* saveTheAquifer.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = saveTheAquifer.caf; sourceTree = "<group>"; };
+		B03305971CDE26FA0024E556 /* MBMainMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMainMenuViewController.h; sourceTree = "<group>"; };
+		B03305981CDE26FA0024E556 /* MBMainMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMainMenuViewController.m; sourceTree = "<group>"; };
+		B033059C1CDE27490024E556 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		B07608431CDE301B0012354D /* MBInterstitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBInterstitialViewController.h; sourceTree = "<group>"; };
+		B07608441CDE301B0012354D /* MBInterstitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBInterstitialViewController.m; sourceTree = "<group>"; };
+		B07608471CDE382E0012354D /* EAA.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = EAA.xcodeproj; path = "EAA Codeathon/EAACommon/EAA.xcodeproj"; sourceTree = "<group>"; };
 		B07A0D991CDD7D6500D08CF0 /* MBToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBToken.h; sourceTree = "<group>"; };
 		B07A0D9A1CDD7D6500D08CF0 /* MBToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBToken.m; sourceTree = "<group>"; };
-		B07A0D9D1CDDF6C300D08CF0 /* MBMainMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMainMenuScene.h; sourceTree = "<group>"; };
-		B07A0D9E1CDDF6C300D08CF0 /* MBMainMenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBMainMenuScene.m; sourceTree = "<group>"; };
-		B07A0DA51CDDF73400D08CF0 /* MadBomberTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MadBomberTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B07A0DA51CDDF73400D08CF0 /* Aquifer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aquifer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B07A0DA81CDDF73500D08CF0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B07A0DAD1CDDF73500D08CF0 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
 		B07A0DB31CDDF73500D08CF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B07A0DB51CDDF73500D08CF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B07A0DB71CDDF73500D08CF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B07A0DC71CDDF81C00D08CF0 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS9.2.sdk/System/Library/Frameworks/SpriteKit.framework; sourceTree = DEVELOPER_DIR; };
-		B0DFCE4618B45930007C6676 /* MadBomber.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MadBomber.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0DFCE4618B45930007C6676 /* Aquifer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aquifer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0DFCE4918B45930007C6676 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B0DFCE4B18B45930007C6676 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		B0DFCE4D18B45930007C6676 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B0DFCE4F18B45930007C6676 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
-		B0DFCE5318B45930007C6676 /* MadBomber-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MadBomber-Info.plist"; sourceTree = "<group>"; };
+		B0DFCE5318B45930007C6676 /* Aquifer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Aquifer-Info.plist"; sourceTree = "<group>"; };
 		B0DFCE5518B45930007C6676 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B0DFCE5718B45930007C6676 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		B0DFCE5918B45930007C6676 /* MadBomber-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MadBomber-Prefix.pch"; sourceTree = "<group>"; };
+		B0DFCE5918B45930007C6676 /* Aquifer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Aquifer-Prefix.pch"; sourceTree = "<group>"; };
 		B0DFCE5A18B45930007C6676 /* MBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBAppDelegate.h; sourceTree = "<group>"; };
 		B0DFCE5B18B45930007C6676 /* MBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBAppDelegate.m; sourceTree = "<group>"; };
-		B0DFCE5E18B45930007C6676 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		B0DFCE6118B45930007C6676 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		B0DFCE6318B45930007C6676 /* MBViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBViewController.h; sourceTree = "<group>"; };
 		B0DFCE6418B45930007C6676 /* MBViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBViewController.m; sourceTree = "<group>"; };
 		B0DFCE6618B45930007C6676 /* MBBomberScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBBomberScene.h; sourceTree = "<group>"; };
 		B0DFCE6718B45930007C6676 /* MBBomberScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBBomberScene.m; sourceTree = "<group>"; };
 		B0DFCE6B18B45930007C6676 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		B0DFCE7118B45930007C6676 /* MadBomberTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MadBomberTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0DFCE7118B45930007C6676 /* Aquifer.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Aquifer.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0DFCE7218B45930007C6676 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		B0DFCE7A18B45930007C6676 /* MadBomberTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MadBomberTests-Info.plist"; sourceTree = "<group>"; };
+		B0DFCE7A18B45930007C6676 /* AquiferTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AquiferTests-Info.plist"; sourceTree = "<group>"; };
 		B0DFCE7C18B45930007C6676 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B0DFCE7E18B45930007C6676 /* MadBomberTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MadBomberTests.m; sourceTree = "<group>"; };
 		B0DFCE8C18B59DC7007C6676 /* smallExplosion.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = smallExplosion.caf; path = ../smallExplosion.caf; sourceTree = "<group>"; };
@@ -188,12 +242,12 @@
 		B0DFCE9418B5A0F6007C6676 /* evilLaugh.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = evilLaugh.caf; path = ../evilLaugh.caf; sourceTree = "<group>"; };
 		B0DFCE9618B5A1B6007C6676 /* bombDrop.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = bombDrop.caf; path = ../bombDrop.caf; sourceTree = "<group>"; };
 		B0DFCE9818B5A602007C6676 /* BlownAway.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BlownAway.mp3; sourceTree = "<group>"; };
-		B0DFCE9E18B6CCB1007C6676 /* MadBomberX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MadBomberX.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0DFCE9E18B6CCB1007C6676 /* Aquifer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aquifer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0DFCE9F18B6CCB1007C6676 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		B0DFCEA318B6CCB1007C6676 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		B0DFCEA418B6CCB1007C6676 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B0DFCEA518B6CCB1007C6676 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		B0DFCEA818B6CCB1007C6676 /* MadBomberX-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MadBomberX-Info.plist"; sourceTree = "<group>"; };
+		B0DFCEA818B6CCB1007C6676 /* AquiferX-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AquiferX-Info.plist"; sourceTree = "<group>"; };
 		B0DFCEAA18B6CCB1007C6676 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B0DFCEAC18B6CCB1007C6676 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B0DFCEAE18B6CCB1007C6676 /* MadBomberX-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MadBomberX-Prefix.pch"; sourceTree = "<group>"; };
@@ -203,8 +257,8 @@
 		B0DFCEB918B6CCB1007C6676 /* MBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBAppDelegate.h; sourceTree = "<group>"; };
 		B0DFCEBA18B6CCB1007C6676 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
 		B0DFCEBC18B6CCB1007C6676 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		B0DFCEC218B6CCB1007C6676 /* MadBomberXTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MadBomberXTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B0DFCEC918B6CCB1007C6676 /* MadBomberXTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MadBomberXTests-Info.plist"; sourceTree = "<group>"; };
+		B0DFCEC218B6CCB1007C6676 /* Aquifer.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Aquifer.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0DFCEC918B6CCB1007C6676 /* AquiferXTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AquiferXTests-Info.plist"; sourceTree = "<group>"; };
 		B0DFCECB18B6CCB1007C6676 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B0DFCECD18B6CCB1007C6676 /* MadBomberXTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MadBomberXTests.m; sourceTree = "<group>"; };
 		B0DFCEDE18B6D77F007C6676 /* MBMouseMotionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBMouseMotionManager.h; sourceTree = "<group>"; };
@@ -225,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0DFCE4C18B45930007C6676 /* CoreGraphics.framework in Frameworks */,
+				B07608561CDE38400012354D /* EAACommon.framework in Frameworks */,
 				B0DFCE4E18B45930007C6676 /* UIKit.framework in Frameworks */,
 				B0DFCE5018B45930007C6676 /* SpriteKit.framework in Frameworks */,
 				B0DFCE4A18B45930007C6676 /* Foundation.framework in Frameworks */,
@@ -295,6 +350,17 @@
 			path = FX;
 			sourceTree = "<group>";
 		};
+		B07608481CDE382E0012354D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B076084F1CDE382E0012354D /* EAA_iOS.app */,
+				B07608511CDE382E0012354D /* EAACommon.framework */,
+				B07608531CDE382E0012354D /* EAACommon.framework */,
+				B07608551CDE382E0012354D /* EAACommon.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		B07A0DA61CDDF73500D08CF0 /* MadBomberTV */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,6 +384,7 @@
 		B0DFCE3D18B45930007C6676 = {
 			isa = PBXGroup;
 			children = (
+				B07608471CDE382E0012354D /* EAA.xcodeproj */,
 				B0DFCE5118B45930007C6676 /* MadBomber */,
 				B0DFCE7818B45930007C6676 /* MadBomberTests */,
 				B0DFCEA618B6CCB1007C6676 /* MadBomberX */,
@@ -331,11 +398,11 @@
 		B0DFCE4718B45930007C6676 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B0DFCE4618B45930007C6676 /* MadBomber.app */,
-				B0DFCE7118B45930007C6676 /* MadBomberTests.xctest */,
-				B0DFCE9E18B6CCB1007C6676 /* MadBomberX.app */,
-				B0DFCEC218B6CCB1007C6676 /* MadBomberXTests.xctest */,
-				B07A0DA51CDDF73400D08CF0 /* MadBomberTV.app */,
+				B0DFCE4618B45930007C6676 /* Aquifer.app */,
+				B0DFCE7118B45930007C6676 /* Aquifer.xctest */,
+				B0DFCE9E18B6CCB1007C6676 /* Aquifer.app */,
+				B0DFCEC218B6CCB1007C6676 /* Aquifer.xctest */,
+				B07A0DA51CDDF73400D08CF0 /* Aquifer.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -363,8 +430,6 @@
 				B0DFCE9818B5A602007C6676 /* BlownAway.mp3 */,
 				B0DFCE5A18B45930007C6676 /* MBAppDelegate.h */,
 				B0DFCE5B18B45930007C6676 /* MBAppDelegate.m */,
-				B0DFCE5D18B45930007C6676 /* Main_iPhone.storyboard */,
-				B0DFCE6018B45930007C6676 /* Main_iPad.storyboard */,
 				B0DFCE6318B45930007C6676 /* MBViewController.h */,
 				B0DFCE6418B45930007C6676 /* MBViewController.m */,
 				B0DFCE6618B45930007C6676 /* MBBomberScene.h */,
@@ -373,8 +438,11 @@
 				B0DFCE5218B45930007C6676 /* Supporting Files */,
 				B07A0D991CDD7D6500D08CF0 /* MBToken.h */,
 				B07A0D9A1CDD7D6500D08CF0 /* MBToken.m */,
-				B07A0D9D1CDDF6C300D08CF0 /* MBMainMenuScene.h */,
-				B07A0D9E1CDDF6C300D08CF0 /* MBMainMenuScene.m */,
+				B03305971CDE26FA0024E556 /* MBMainMenuViewController.h */,
+				B03305981CDE26FA0024E556 /* MBMainMenuViewController.m */,
+				B033059C1CDE27490024E556 /* Main.storyboard */,
+				B07608431CDE301B0012354D /* MBInterstitialViewController.h */,
+				B07608441CDE301B0012354D /* MBInterstitialViewController.m */,
 			);
 			path = MadBomber;
 			sourceTree = "<group>";
@@ -382,10 +450,10 @@
 		B0DFCE5218B45930007C6676 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B0DFCE5318B45930007C6676 /* MadBomber-Info.plist */,
+				B0DFCE5318B45930007C6676 /* Aquifer-Info.plist */,
 				B0DFCE5418B45930007C6676 /* InfoPlist.strings */,
 				B0DFCE5718B45930007C6676 /* main.m */,
-				B0DFCE5918B45930007C6676 /* MadBomber-Prefix.pch */,
+				B0DFCE5918B45930007C6676 /* Aquifer-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -402,7 +470,7 @@
 		B0DFCE7918B45930007C6676 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B0DFCE7A18B45930007C6676 /* MadBomberTests-Info.plist */,
+				B0DFCE7A18B45930007C6676 /* AquiferTests-Info.plist */,
 				B0DFCE7B18B45930007C6676 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -436,7 +504,7 @@
 		B0DFCEA718B6CCB1007C6676 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B0DFCEA818B6CCB1007C6676 /* MadBomberX-Info.plist */,
+				B0DFCEA818B6CCB1007C6676 /* AquiferX-Info.plist */,
 				B0DFCEA918B6CCB1007C6676 /* InfoPlist.strings */,
 				B0DFCEAC18B6CCB1007C6676 /* main.m */,
 				B0DFCEAE18B6CCB1007C6676 /* MadBomberX-Prefix.pch */,
@@ -457,7 +525,7 @@
 		B0DFCEC818B6CCB1007C6676 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				B0DFCEC918B6CCB1007C6676 /* MadBomberXTests-Info.plist */,
+				B0DFCEC918B6CCB1007C6676 /* AquiferXTests-Info.plist */,
 				B0DFCECA18B6CCB1007C6676 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -466,9 +534,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B07A0DA41CDDF73400D08CF0 /* MadBomberTV */ = {
+		B07A0DA41CDDF73400D08CF0 /* AquiferTV */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B07A0DB81CDDF73500D08CF0 /* Build configuration list for PBXNativeTarget "MadBomberTV" */;
+			buildConfigurationList = B07A0DB81CDDF73500D08CF0 /* Build configuration list for PBXNativeTarget "AquiferTV" */;
 			buildPhases = (
 				B07A0DA11CDDF73400D08CF0 /* Sources */,
 				B07A0DA21CDDF73400D08CF0 /* Frameworks */,
@@ -478,31 +546,33 @@
 			);
 			dependencies = (
 			);
-			name = MadBomberTV;
+			name = AquiferTV;
 			productName = MadBomberTV;
-			productReference = B07A0DA51CDDF73400D08CF0 /* MadBomberTV.app */;
+			productReference = B07A0DA51CDDF73400D08CF0 /* Aquifer.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B0DFCE4518B45930007C6676 /* MadBomber */ = {
+		B0DFCE4518B45930007C6676 /* Aquifer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B0DFCE8218B45930007C6676 /* Build configuration list for PBXNativeTarget "MadBomber" */;
+			buildConfigurationList = B0DFCE8218B45930007C6676 /* Build configuration list for PBXNativeTarget "Aquifer" */;
 			buildPhases = (
 				B0DFCE4218B45930007C6676 /* Sources */,
 				B0DFCE4318B45930007C6676 /* Frameworks */,
 				B0DFCE4418B45930007C6676 /* Resources */,
+				B076085A1CDE38400012354D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				B07608591CDE38400012354D /* PBXTargetDependency */,
 			);
-			name = MadBomber;
+			name = Aquifer;
 			productName = MadBomber;
-			productReference = B0DFCE4618B45930007C6676 /* MadBomber.app */;
+			productReference = B0DFCE4618B45930007C6676 /* Aquifer.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B0DFCE7018B45930007C6676 /* MadBomberTests */ = {
+		B0DFCE7018B45930007C6676 /* AquiferTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B0DFCE8518B45930007C6676 /* Build configuration list for PBXNativeTarget "MadBomberTests" */;
+			buildConfigurationList = B0DFCE8518B45930007C6676 /* Build configuration list for PBXNativeTarget "AquiferTests" */;
 			buildPhases = (
 				B0DFCE6D18B45930007C6676 /* Sources */,
 				B0DFCE6E18B45930007C6676 /* Frameworks */,
@@ -513,14 +583,14 @@
 			dependencies = (
 				B0DFCE7718B45930007C6676 /* PBXTargetDependency */,
 			);
-			name = MadBomberTests;
+			name = AquiferTests;
 			productName = MadBomberTests;
-			productReference = B0DFCE7118B45930007C6676 /* MadBomberTests.xctest */;
+			productReference = B0DFCE7118B45930007C6676 /* Aquifer.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		B0DFCE9D18B6CCB1007C6676 /* MadBomberX */ = {
+		B0DFCE9D18B6CCB1007C6676 /* AquiferX */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B0DFCED318B6CCB1007C6676 /* Build configuration list for PBXNativeTarget "MadBomberX" */;
+			buildConfigurationList = B0DFCED318B6CCB1007C6676 /* Build configuration list for PBXNativeTarget "AquiferX" */;
 			buildPhases = (
 				B0DFCE9A18B6CCB1007C6676 /* Sources */,
 				B0DFCE9B18B6CCB1007C6676 /* Frameworks */,
@@ -530,14 +600,14 @@
 			);
 			dependencies = (
 			);
-			name = MadBomberX;
+			name = AquiferX;
 			productName = MadBomberX;
-			productReference = B0DFCE9E18B6CCB1007C6676 /* MadBomberX.app */;
+			productReference = B0DFCE9E18B6CCB1007C6676 /* Aquifer.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B0DFCEC118B6CCB1007C6676 /* MadBomberXTests */ = {
+		B0DFCEC118B6CCB1007C6676 /* AquiferXTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B0DFCED418B6CCB1007C6676 /* Build configuration list for PBXNativeTarget "MadBomberXTests" */;
+			buildConfigurationList = B0DFCED418B6CCB1007C6676 /* Build configuration list for PBXNativeTarget "AquiferXTests" */;
 			buildPhases = (
 				B0DFCEBE18B6CCB1007C6676 /* Sources */,
 				B0DFCEBF18B6CCB1007C6676 /* Frameworks */,
@@ -548,9 +618,9 @@
 			dependencies = (
 				B0DFCEC618B6CCB1007C6676 /* PBXTargetDependency */,
 			);
-			name = MadBomberXTests;
+			name = AquiferXTests;
 			productName = MadBomberXTests;
-			productReference = B0DFCEC218B6CCB1007C6676 /* MadBomberXTests.xctest */;
+			productReference = B0DFCEC218B6CCB1007C6676 /* Aquifer.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -574,7 +644,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B0DFCE4118B45930007C6676 /* Build configuration list for PBXProject "MadBomber" */;
+			buildConfigurationList = B0DFCE4118B45930007C6676 /* Build configuration list for PBXProject "Aquifer" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -585,16 +655,53 @@
 			mainGroup = B0DFCE3D18B45930007C6676;
 			productRefGroup = B0DFCE4718B45930007C6676 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = B07608481CDE382E0012354D /* Products */;
+					ProjectRef = B07608471CDE382E0012354D /* EAA.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
-				B0DFCE4518B45930007C6676 /* MadBomber */,
-				B0DFCE7018B45930007C6676 /* MadBomberTests */,
-				B0DFCE9D18B6CCB1007C6676 /* MadBomberX */,
-				B0DFCEC118B6CCB1007C6676 /* MadBomberXTests */,
-				B07A0DA41CDDF73400D08CF0 /* MadBomberTV */,
+				B0DFCE4518B45930007C6676 /* Aquifer */,
+				B0DFCE7018B45930007C6676 /* AquiferTests */,
+				B0DFCE9D18B6CCB1007C6676 /* AquiferX */,
+				B0DFCEC118B6CCB1007C6676 /* AquiferXTests */,
+				B07A0DA41CDDF73400D08CF0 /* AquiferTV */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		B076084F1CDE382E0012354D /* EAA_iOS.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = EAA_iOS.app;
+			remoteRef = B076084E1CDE382E0012354D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B07608511CDE382E0012354D /* EAACommon.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = EAACommon.framework;
+			remoteRef = B07608501CDE382E0012354D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B07608531CDE382E0012354D /* EAACommon.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = EAACommon.framework;
+			remoteRef = B07608521CDE382E0012354D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B07608551CDE382E0012354D /* EAACommon.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = EAACommon.framework;
+			remoteRef = B07608541CDE382E0012354D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		B07A0DA31CDDF73400D08CF0 /* Resources */ = {
@@ -644,12 +751,11 @@
 				B03305871CDE0A5F0024E556 /* yes3.caf in Resources */,
 				B0DFCE9718B5A1B6007C6676 /* bombDrop.caf in Resources */,
 				B03305841CDE0A5F0024E556 /* yes2.caf in Resources */,
+				B033059D1CDE27490024E556 /* Main.storyboard in Resources */,
 				B0DFCE6C18B45930007C6676 /* Images.xcassets in Resources */,
 				B03305691CDE088A0024E556 /* no2.caf in Resources */,
-				B0DFCE6218B45930007C6676 /* Main_iPad.storyboard in Resources */,
 				B03305941CDE0A730024E556 /* saveTheAquifer.caf in Resources */,
 				B0DFCE8D18B59DC7007C6676 /* smallExplosion.caf in Resources */,
-				B0DFCE5F18B45930007C6676 /* Main_iPhone.storyboard in Resources */,
 				B0DFCE5618B45930007C6676 /* InfoPlist.strings in Resources */,
 				B0DFCE9918B5A602007C6676 /* BlownAway.mp3 in Resources */,
 				B033058A1CDE0A5F0024E556 /* yes4.caf in Resources */,
@@ -715,9 +821,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B07A0DA91CDDF73500D08CF0 /* main.m in Sources */,
+				B07608461CDE301B0012354D /* MBInterstitialViewController.m in Sources */,
+				B033059B1CDE26FA0024E556 /* MBMainMenuViewController.m in Sources */,
 				B07A0DC21CDDF76E00D08CF0 /* MBViewController.m in Sources */,
 				B07A0DC31CDDF77100D08CF0 /* MBBomberScene.m in Sources */,
-				B07A0DC61CDDF77C00D08CF0 /* MBMainMenuScene.m in Sources */,
 				B07A0DC51CDDF77C00D08CF0 /* MBToken.m in Sources */,
 				B07A0DBB1CDDF75800D08CF0 /* MBAppDelegate.m in Sources */,
 			);
@@ -728,9 +835,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0DFCE5818B45930007C6676 /* main.m in Sources */,
+				B07608451CDE301B0012354D /* MBInterstitialViewController.m in Sources */,
+				B03305991CDE26FA0024E556 /* MBMainMenuViewController.m in Sources */,
 				B0DFCE6818B45930007C6676 /* MBBomberScene.m in Sources */,
 				B0DFCE6518B45930007C6676 /* MBViewController.m in Sources */,
-				B07A0D9F1CDDF6C300D08CF0 /* MBMainMenuScene.m in Sources */,
 				B07A0D9B1CDD7D6500D08CF0 /* MBToken.m in Sources */,
 				B0DFCE5C18B45930007C6676 /* MBAppDelegate.m in Sources */,
 			);
@@ -749,9 +857,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0DFCEAD18B6CCB1007C6676 /* main.m in Sources */,
+				B033059A1CDE26FA0024E556 /* MBMainMenuViewController.m in Sources */,
 				B0DFCED718B6CCC1007C6676 /* MBBomberScene.m in Sources */,
 				B0DFCEE018B6D77F007C6676 /* MBMouseMotionManager.m in Sources */,
-				B07A0DA01CDDF6C300D08CF0 /* MBMainMenuScene.m in Sources */,
 				B07A0D9C1CDD7D6500D08CF0 /* MBToken.m in Sources */,
 				B0DFCEB818B6CCB1007C6676 /* MBAppDelegate.m in Sources */,
 			);
@@ -768,14 +876,19 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		B07608591CDE38400012354D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = EAACommon;
+			targetProxy = B07608581CDE38400012354D /* PBXContainerItemProxy */;
+		};
 		B0DFCE7718B45930007C6676 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B0DFCE4518B45930007C6676 /* MadBomber */;
+			target = B0DFCE4518B45930007C6676 /* Aquifer */;
 			targetProxy = B0DFCE7618B45930007C6676 /* PBXContainerItemProxy */;
 		};
 		B0DFCEC618B6CCB1007C6676 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B0DFCE9D18B6CCB1007C6676 /* MadBomberX */;
+			target = B0DFCE9D18B6CCB1007C6676 /* AquiferX */;
 			targetProxy = B0DFCEC518B6CCB1007C6676 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -795,22 +908,6 @@
 				B0DFCE5518B45930007C6676 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		B0DFCE5D18B45930007C6676 /* Main_iPhone.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B0DFCE5E18B45930007C6676 /* Base */,
-			);
-			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		B0DFCE6018B45930007C6676 /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B0DFCE6118B45930007C6676 /* Base */,
-			);
-			name = Main_iPad.storyboard;
 			sourceTree = "<group>";
 		};
 		B0DFCE7B18B45930007C6676 /* InfoPlist.strings */ = {
@@ -863,7 +960,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.waynehartman.MadBomberTV;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Aquifer;
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
@@ -886,7 +983,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.waynehartman.MadBomberTV;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Aquifer;
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
@@ -971,11 +1068,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MadBomber/MadBomber-Prefix.pch";
-				INFOPLIST_FILE = "MadBomber/MadBomber-Info.plist";
+				GCC_PREFIX_HEADER = "MadBomber/Aquifer-Prefix.pch";
+				INFOPLIST_FILE = "MadBomber/Aquifer-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.waynehartman.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Aquifer;
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -986,11 +1084,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MadBomber/MadBomber-Prefix.pch";
-				INFOPLIST_FILE = "MadBomber/MadBomber-Info.plist";
+				GCC_PREFIX_HEADER = "MadBomber/Aquifer-Prefix.pch";
+				INFOPLIST_FILE = "MadBomber/Aquifer-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.waynehartman.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Aquifer;
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1006,14 +1105,14 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MadBomber/MadBomber-Prefix.pch";
+				GCC_PREFIX_HEADER = "MadBomber/Aquifer-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "MadBomberTests/MadBomberTests-Info.plist";
+				INFOPLIST_FILE = "MadBomberTests/AquiferTests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.waynehartman.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Aquifer;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1029,10 +1128,10 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MadBomber/MadBomber-Prefix.pch";
-				INFOPLIST_FILE = "MadBomberTests/MadBomberTests-Info.plist";
+				GCC_PREFIX_HEADER = "MadBomber/Aquifer-Prefix.pch";
+				INFOPLIST_FILE = "MadBomberTests/AquiferTests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.waynehartman.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Aquifer;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1049,15 +1148,15 @@
 				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MadBomberX/MadBomberX-Prefix.pch";
+				GCC_PREFIX_HEADER = "MadBomber/Aquifer-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "MadBomberX/MadBomberX-Info.plist";
+				INFOPLIST_FILE = "MadBomberX/AquiferX-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.waynehartman.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Aquifer;
 				SDKROOT = macosx;
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
@@ -1076,11 +1175,11 @@
 				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MadBomberX/MadBomberX-Prefix.pch";
-				INFOPLIST_FILE = "MadBomberX/MadBomberX-Info.plist";
+				GCC_PREFIX_HEADER = "MadBomber/Aquifer-Prefix.pch";
+				INFOPLIST_FILE = "MadBomberX/AquiferX-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.waynehartman.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Aquifer;
 				SDKROOT = macosx;
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
@@ -1098,15 +1197,15 @@
 				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MadBomberX/MadBomberX-Prefix.pch";
+				GCC_PREFIX_HEADER = "MadBomber/Aquifer-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "MadBomberXTests/MadBomberXTests-Info.plist";
+				INFOPLIST_FILE = "MadBomberXTests/AquiferXTests-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.waynehartman.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Aquifer;
 				SDKROOT = macosx;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -1125,11 +1224,11 @@
 				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MadBomberX/MadBomberX-Prefix.pch";
-				INFOPLIST_FILE = "MadBomberXTests/MadBomberXTests-Info.plist";
+				GCC_PREFIX_HEADER = "MadBomber/Aquifer-Prefix.pch";
+				INFOPLIST_FILE = "MadBomberXTests/AquiferXTests-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.waynehartman.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Aquifer;
 				SDKROOT = macosx;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -1139,7 +1238,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B07A0DB81CDDF73500D08CF0 /* Build configuration list for PBXNativeTarget "MadBomberTV" */ = {
+		B07A0DB81CDDF73500D08CF0 /* Build configuration list for PBXNativeTarget "AquiferTV" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B07A0DB91CDDF73500D08CF0 /* Debug */,
@@ -1148,7 +1247,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B0DFCE4118B45930007C6676 /* Build configuration list for PBXProject "MadBomber" */ = {
+		B0DFCE4118B45930007C6676 /* Build configuration list for PBXProject "Aquifer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B0DFCE8018B45930007C6676 /* Debug */,
@@ -1157,7 +1256,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B0DFCE8218B45930007C6676 /* Build configuration list for PBXNativeTarget "MadBomber" */ = {
+		B0DFCE8218B45930007C6676 /* Build configuration list for PBXNativeTarget "Aquifer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B0DFCE8318B45930007C6676 /* Debug */,
@@ -1166,7 +1265,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B0DFCE8518B45930007C6676 /* Build configuration list for PBXNativeTarget "MadBomberTests" */ = {
+		B0DFCE8518B45930007C6676 /* Build configuration list for PBXNativeTarget "AquiferTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B0DFCE8618B45930007C6676 /* Debug */,
@@ -1175,7 +1274,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B0DFCED318B6CCB1007C6676 /* Build configuration list for PBXNativeTarget "MadBomberX" */ = {
+		B0DFCED318B6CCB1007C6676 /* Build configuration list for PBXNativeTarget "AquiferX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B0DFCECF18B6CCB1007C6676 /* Debug */,
@@ -1184,7 +1283,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B0DFCED418B6CCB1007C6676 /* Build configuration list for PBXNativeTarget "MadBomberXTests" */ = {
+		B0DFCED418B6CCB1007C6676 /* Build configuration list for PBXNativeTarget "AquiferXTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B0DFCED118B6CCB1007C6676 /* Debug */,

@@ -39,6 +39,7 @@
         // Create and configure the scene.
         MBBomberScene * scene = [MBBomberScene sceneWithSize:view.bounds.size];
         scene.scaleMode = SKSceneScaleModeAspectFill;
+        scene.startingWaterLevel = [self.currentLevel floatValue];
 #if TARGET_OS_TV
         UITapGestureRecognizer *playRecognizer = [[UITapGestureRecognizer alloc] init];
         playRecognizer.allowedPressTypes = @[@(UIPressTypePlayPause)];
