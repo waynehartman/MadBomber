@@ -10,9 +10,18 @@
 #import "MBInterstitialViewController.h"
 #import "MBViewController.h"
 #import <EAACommon/EAACommon.h>
+
+#if TARGET_OS_TV
+#elif TARGET_OS_IPHONE
 #import <KandySDK/KandySDK.h>
 
-@interface MBMainMenuViewController () <MBViewControllerDelegate, KandyChatServiceNotificationDelegate>
+@interface MBMainMenuViewController (KANDY) <KandyChatServiceNotificationDelegate>
+
+@end
+
+#endif
+
+@interface MBMainMenuViewController () <MBViewControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel *aquiferLevelLabel;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
@@ -38,12 +47,7 @@
                                                                  password:@"3b459d9ed79743"];
     [[Kandy sharedInstance].access login:kandyUserInfo responseCallback:^(NSError *error) {
         if (error) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Kandy Error"
-                                                            message:error.localizedDescription
-                                                           delegate:self
-                                                  cancelButtonTitle:@"OK"
-                                                  otherButtonTitles:nil];
-            [alert show];
+            NSLog(@">>>>>>>>> There was a problem registering with Kandy...");
         }
     }];
 #endif
@@ -93,6 +97,8 @@
 #pragma mark - MBViewControllerDelegate
 
 - (void)gameViewController:(MBViewController *)gameVC didFinishGameWithScore:(NSInteger)score highscore:(NSInteger)highscore {
+#if TARGET_OS_TV
+#elif TARGET_OS_IPHONE
     if (YES) {//score > highscore) { commented this logic out for the demo
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"SMS your high score?" message:nil preferredStyle:UIAlertControllerStyleAlert];
         [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:NULL]];
@@ -123,10 +129,12 @@
 
         [gameVC presentViewController:alert animated:YES completion:NULL];
     }
+#endif
 }
 
-#pragma mark - 
-
+#pragma mark -
+#if TARGET_OS_TV
+#elif TARGET_OS_IPHONE
 -(void) onMessageReceived:(id<KandyMessageProtocol>)kandyMessage recipientType:(EKandyRecordType)recipientType {
     
 }
@@ -142,5 +150,6 @@
 -(void) onAutoDownloadFinished:(NSError*)error fileAbsolutePath:(NSString*)path kandyMessage:(id<KandyMessageProtocol>)kandyMessage {
     
 }
+#endif
 
 @end
