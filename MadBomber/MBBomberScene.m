@@ -25,6 +25,7 @@
     double _nextDropToSpawn;
     int _nextBomb;
     BOOL _gameOver;
+    BOOL _isFirstFrame;
 }
 
 @property (nonatomic, strong) SKLabelNode *scoreNode;
@@ -101,7 +102,6 @@ static CGFloat meterX = 20.0f;
         self.maxMeterSize = self.size.height * 0.75;
         self.meterColors = @[
                                 [SKColor blueColor],
-                                [SKColor greenColor],
                                 [SKColor yellowColor],
                                 [SKColor orangeColor],
                                 [SKColor redColor],
@@ -112,10 +112,11 @@ static CGFloat meterX = 20.0f;
             self.gameController = [[GCController controllers] firstObject];
             [self setupController];
         }
-
+#if !TARGET_IPHONE_SIMULATOR
         CIFilter *blur = [CIFilter filterWithName:@"CIGaussianBlur" keysAndValues:@"inputRadius", @1.0f, nil];
         self.filter = blur;
         self.shouldEnableEffects = NO;
+#endif
 
         self.noSFX = @[
                         @"no1",
@@ -144,12 +145,13 @@ static CGFloat meterX = 20.0f;
                                                  selector:@selector(controllerDidDisconnect:)
                                                      name:GCControllerDidDisconnectNotification
                                                    object:nil];
-
+#if !TARGET_IPHONE_SIMULATOR
         self.background = [SKSpriteNode spriteNodeWithImageNamed:@"gameBG"];
         self.background.size = self.size;
         self.background.position = CGPointMake(self.size.width * 0.5f, self.size.height * 0.5f);
         
         [self addChild:self.background];
+#endif
         [self addChild:self.scoreNode];
         [self addChild:self.bomber];
         [self addChild:self.waterLevelMeter];
@@ -420,6 +422,8 @@ static CGFloat meterX = 20.0f;
     }
 
     if (!_gameOver) {
+        CGFloat previousLevel = self.currentLevel;
+        
         if (_gameController) {
             [self updatePlayerFromGameController];
         } else {
@@ -447,7 +451,7 @@ static CGFloat meterX = 20.0f;
                     NSString *filename = [self randomSoundFileNameFromArray:self.noSFX];
                     
                     [bomb runAction:[SKAction playSoundFileNamed:filename waitForCompletion:NO]];
-                    
+#if !TARGET_OS_TV
                     self.shouldEnableEffects = YES;
                     
                     NSTimeInterval duration = 0.12;
@@ -462,6 +466,7 @@ static CGFloat meterX = 20.0f;
                             
                         }];
                     }];
+#endif
                 }
                 break;
             }
@@ -483,13 +488,15 @@ static CGFloat meterX = 20.0f;
         if (newMeterHeight > self.maxMeterSize) {
             newMeterHeight = self.maxMeterSize;
         }
-        
-        self.waterLevelMeter.path = [UIBezierPath bezierPathWithRect:CGRectMake(meterX,
-                                                                                0.0f,
-                                                                                meterWidth, newMeterHeight)].CGPath;
-        self.meterLabel.position = CGPointMake((self.waterLevelMeter.frame.size.width * 0.5f) + meterX,
-                                               newMeterHeight + 10.0f);
 
+        if (self.currentLevel != previousLevel || _isFirstFrame) {
+            _isFirstFrame = NO;
+            self.waterLevelMeter.path = [UIBezierPath bezierPathWithRect:CGRectMake(meterX,
+                                                                                    0.0f,
+                                                                                    meterWidth, newMeterHeight)].CGPath;
+            self.meterLabel.position = CGPointMake((self.waterLevelMeter.frame.size.width * 0.5f) + meterX,
+                                                   newMeterHeight + 10.0f);
+        }
 
         if (self.currentLevel <= 0.0f) {
             self.currentLevel = 0.0f;
@@ -637,6 +644,9 @@ static CGFloat meterX = 20.0f;
         NSInteger highScore = [[NSUserDefaults standardUserDefaults] integerForKey:USER_DEFAULTS_HIGH_SCORE];
         self.gameEndHandler(self.points, highScore);
     }
+    
+    _isFirstFrame = YES;
+    self.shouldEnableEffects = NO;
 }
 
 - (void)killAllActions {
