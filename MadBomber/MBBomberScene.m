@@ -605,6 +605,11 @@ static CGFloat meterX = 20.0f;
     }
 
     [self stopMonitoringAcceleration];
+    
+    if (self.gameEndHandler) {
+        NSInteger highScore = [[NSUserDefaults standardUserDefaults] integerForKey:USER_DEFAULTS_HIGH_SCORE];
+        self.gameEndHandler(self.points, highScore);
+    }
 }
 
 - (void)killAllActions {

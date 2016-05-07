@@ -49,7 +49,13 @@
         
         [self.view addGestureRecognizer:swipeRecognizer];
         [self.view addGestureRecognizer:playRecognizer];
+
+#elif TARGET_OS_IPHONE
+        scene.gameEndHandler = ^(NSInteger score, NSInteger highscore) {
+            [self.delegate gameViewController:self didFinishGameWithScore:score highscore:highscore];
+        };
 #endif
+
         self.scene = scene;
 
         // Present the scene.

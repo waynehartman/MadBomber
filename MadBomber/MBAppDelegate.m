@@ -8,7 +8,13 @@
 
 #import "MBAppDelegate.h"
 
+@interface MBAppDelegate()
+
+@end
+
 @implementation MBAppDelegate
+
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
