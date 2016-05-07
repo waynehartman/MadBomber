@@ -79,7 +79,7 @@
             [self addChild:bomb];
         }
 
-        [self insertChild:self.player atIndex:self.children.count - 1];
+        self.player.zPosition = 100;
 
         [self startTheGame];
         
