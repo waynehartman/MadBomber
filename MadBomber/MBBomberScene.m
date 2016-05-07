@@ -22,6 +22,7 @@
 
 @interface MBBomberScene() {
     double _nextBombToSpawn;
+    double _nextDropToSpawn;
     int _nextBomb;
     BOOL _gameOver;
 }
@@ -37,11 +38,16 @@
 @property (nonatomic, assign) CGFloat currentLevel;
 @property (nonatomic, strong) SKShapeNode *waterLevelMeter;
 @property (nonatomic, strong) SKLabelNode *meterLabel;
+@property (nonatomic, strong) MBToken *waterDropNode;
 
 @property (nonatomic, assign) CGFloat lastPosition;
 @property (nonatomic, assign) CGFloat maxMeterSize;
 @property (nonatomic, strong) NSArray<SKColor *> *meterColors;
 @property (nonatomic, assign) NSInteger stageLevel;
+@property (nonatomic, strong) NSArray<NSString *> *noSFX;
+@property (nonatomic, strong) NSArray<NSString *> *yesSFX;
+
+
 
 #if TARGET_OS_TV
 
@@ -57,6 +63,7 @@
 #define NAME_RESTART_LABEL          @"NAME_RESTART_LABEL"
 #define NAME_PAUSE_LABEL            @"NAME_PAUSE_LABEL"
 
+static NSTimeInterval kWaterDropInterval = 20.0;
 
 #if TARGET_OS_TV
 
@@ -84,6 +91,9 @@ static CGFloat meterX = 20.0f;
 -(id)initWithSize:(CGSize)size {    
     if (self = [super initWithSize:size]) {
         /* Setup your scene here */
+        self.waterDropNode = [MBToken spriteNodeWithImageNamed:@"drop"];
+        self.waterDropNode.value = 100;
+
         self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
         self.physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame];
         self.maxMeterSize = self.size.height * 0.75;
@@ -100,6 +110,25 @@ static CGFloat meterX = 20.0f;
             self.gameController = [[GCController controllers] firstObject];
             [self setupController];
         }
+        
+        self.noSFX = @[
+                        @"no1",
+                        @"no2",
+                        @"no3",
+                        @"no4",
+                        @"no5",
+                        @"no6",
+                        @"no7",
+                       ];
+        
+        self.yesSFX = @[
+                        @"yes1",
+                        @"yes2",
+                        @"yes3",
+                        @"yes4",
+                        @"yes5",
+                        @"yes6",
+                        ];
 
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(controllerDidConnect:)
@@ -113,6 +142,10 @@ static CGFloat meterX = 20.0f;
         [self addChild:self.scoreNode];
         [self addChild:self.bomber];
         [self addChild:self.waterLevelMeter];
+        [self addChild:self.waterDropNode];
+        
+        self.waterDropNode.hidden = YES;
+        
         [self.waterLevelMeter addChild:self.meterLabel];
         self.meterLabel.position = CGPointMake(self.waterLevelMeter.frame.size.width * 0.5f, self.waterLevelMeter.frame.size.height);
         self.waterLevelMeter.fillColor = [[SKColor blueColor] colorWithAlphaComponent:0.75f];
@@ -278,6 +311,11 @@ static CGFloat meterX = 20.0f;
     return _restartLabel;
 }
 
+- (NSString *)randomSoundFileNameFromArray:(NSArray *)array {
+    NSInteger index = arc4random_uniform((u_int32_t)array.count);
+    return array[index];
+}
+
 #pragma mark - Touches / Mouse
 #if TARGET_OS_IPHONE
 
@@ -343,6 +381,25 @@ static CGFloat meterX = 20.0f;
         [bomb runAction:[SKAction playSoundFileNamed:@"bombDrop.caf" waitForCompletion:NO]];
     }
     
+    if (curTime > _nextDropToSpawn && !_gameOver && !self.paused) {
+        [_waterDropNode removeAllActions];
+        _waterDropNode.position = CGPointMake(self.bomber.position.x, self.bomber.position.y - 10.0f);
+        _waterDropNode.hidden = NO;
+        
+        CGPoint location = CGPointMake(self.bomber.position.x, 0.0f);
+        float randDuration = [self randomValueBetween:5.0 andValue:7.0];
+        
+        SKAction *moveAction = [SKAction moveTo:location duration:randDuration];
+        SKAction *doneAction = [SKAction runBlock:^{
+            self.waterDropNode.hidden = YES;
+        }];
+        
+        SKAction *moveBombSequence = [SKAction sequence:@[moveAction, doneAction]];
+        [_waterDropNode runAction:moveBombSequence withKey:@"bombMoving"];
+        [_waterDropNode runAction:[SKAction playSoundFileNamed:@"bombDrop.caf" waitForCompletion:NO]];
+        _nextDropToSpawn = curTime + kWaterDropInterval;
+    }
+
     if (!_gameOver) {
         
 
@@ -369,14 +426,30 @@ static CGFloat meterX = 20.0f;
                 if (!bomb.hidden) {
                     self.currentLevel += bomb.value;
                     bomb.hidden = YES;
+                    
+                    NSString *filename = [self randomSoundFileNameFromArray:self.noSFX];
+                    
+                    [bomb runAction:[SKAction playSoundFileNamed:filename waitForCompletion:NO]];
                 }
                 break;
             }
         }
-        
-        
+
+        if (!_waterDropNode.hidden && [_waterDropNode intersectsNode:self.player]) { // caught it!
+            self.currentLevel += _waterDropNode.value;
+            _waterDropNode.hidden = YES;
+            NSString *filename = [self randomSoundFileNameFromArray:self.yesSFX];
+            [_waterDropNode runAction:[SKAction playSoundFileNamed:filename waitForCompletion:NO]];
+        } else if (_waterDropNode.position.y < (_waterDropNode.frame.size.width * 0.5)) { // reached bottom
+            _waterDropNode.hidden = YES;
+        }
+
         CGFloat newMeterHeight = (self.currentLevel / self.startingWaterLevel) * self.maxMeterSize;
         
+        if (newMeterHeight > self.maxMeterSize) {
+            newMeterHeight = self.maxMeterSize;
+        }
+
         self.waterLevelMeter.path = [UIBezierPath bezierPathWithRect:CGRectMake(meterX,
                                                                                 0.0f,
                                                                                 meterWidth, newMeterHeight)].CGPath;
@@ -414,10 +487,11 @@ static CGFloat meterX = 20.0f;
 - (void)startTheGame {
     [self killAllActions];
 
+    _nextDropToSpawn = kWaterDropInterval;
     self.stageLevel = 0;
     self.waterLevelMeter.fillColor = self.meterColors[self.stageLevel];
     
-    [self.bomber runAction:[SKAction playSoundFileNamed:@"evilLaugh.caf" waitForCompletion:NO]];
+    [self.bomber runAction:[SKAction playSoundFileNamed:@"saveTheAquifer.caf" waitForCompletion:NO]];
 
     self.bomber.position = CGPointMake(self.frame.size.width * 0.5f, self.frame.size.height - self.bomber.size.height);
     self.player.position = CGPointMake(self.frame.size.width * 0.5f, (self.player.size.height * 0.5f) + 5.0f);
@@ -727,7 +801,7 @@ static CGFloat meterX = 20.0f;
     [self.backgroundAudioPlayer prepareToPlay];
 
     self.backgroundAudioPlayer.numberOfLoops = -1;
-    [self.backgroundAudioPlayer setVolume:0.33];
+    [self.backgroundAudioPlayer setVolume:0.15];
     [self.backgroundAudioPlayer play];
 }
 
